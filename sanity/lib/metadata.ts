@@ -1,16 +1,16 @@
-import { urlFor } from "@/sanity/lib/image";
-import { Locale } from "@/i18n-config";
-import { PAGE_QUERYResult, POST_QUERYResult } from "@/sanity.types";
-const isProduction = process.env.NEXT_PUBLIC_SITE_ENV === "production";
+import { urlFor } from "@/sanity/lib/image"
+import { Locale } from "@/i18n-config"
+import { PAGE_QUERYResult } from "@/sanity.types"
+const isProduction = process.env.NEXT_PUBLIC_SITE_ENV === "production"
 
 export function generatePageMetadata({
   page,
   slug,
   lang,
 }: {
-  page: PAGE_QUERYResult | POST_QUERYResult;
-  slug: string;
-  lang: Locale;
+  page: PAGE_QUERYResult
+  slug: string
+  lang: Locale
 }) {
   return {
     title: page?.meta_title,
@@ -28,13 +28,9 @@ export function generatePageMetadata({
       locale: "en_US",
       type: "website",
     },
-    robots: !isProduction
-      ? "noindex, nofollow"
-      : page?.noindex
-        ? "noindex"
-        : "index, follow",
+    robots: !isProduction ? "noindex, nofollow" : page?.noindex ? "noindex" : "index, follow",
     alternates: {
       canonical: `/${lang}/${slug === "index" ? "" : slug}`,
     },
-  };
+  }
 }

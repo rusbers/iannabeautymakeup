@@ -45,7 +45,7 @@ export default defineConfig({
         { id: "en", title: "English" },
         { id: "ro", title: "Romanian" },
       ],
-      schemaTypes: ["page", "post", "testimonial", "faq"],
+      schemaTypes: ["page", "testimonial"],
     }),
     // only if you want to translate fields, for example:
     // category names for filters
@@ -68,7 +68,7 @@ export default defineConfig({
           // Optional extra filter for document types.
           // If not set, translation is enabled for all documents
           // that has a field with the name defined above.
-          documentTypes: ["page", "post", "testimonial", "faq"],
+          documentTypes: ["page", "testimonial"],
         },
         field: {
           // Translate fields for the following document types
