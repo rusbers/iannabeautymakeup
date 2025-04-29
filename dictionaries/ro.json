@@ -13,6 +13,8 @@
   },
   "menu": {
     "home": "Acasă",
-    "about": "Despre"
+    "services": "Servicii",
+    "pricing": "Prețuri",
+    "contact": "Contact"
   }
 }

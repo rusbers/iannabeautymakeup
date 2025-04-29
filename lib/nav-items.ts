@@ -13,7 +13,17 @@ export function getNavItems(
       target: false,
     },
     {
-      label: dictionary.menu.about,
+      label: dictionary.menu.services,
+      href: `/${lang}/about`,
+      target: false,
+    },
+    {
+      label: dictionary.menu.pricing,
+      href: `/${lang}/about`,
+      target: false,
+    },
+    {
+      label: dictionary.menu.contact,
       href: `/${lang}/about`,
       target: false,
     },

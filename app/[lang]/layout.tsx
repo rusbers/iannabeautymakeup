@@ -1,18 +1,18 @@
-import type { Metadata } from "next";
-import { Inter as FontSans } from "next/font/google";
-import "../globals.css";
-import { cn } from "@/lib/utils";
-import { ThemeProvider } from "@/components/theme-provider";
-import { Toaster } from "@/components/ui/sonner";
-import { i18n, type Locale } from "@/i18n-config";
+import type { Metadata } from "next"
+import { Inter as FontSans } from "next/font/google"
+import "../globals.css"
+import { cn } from "@/lib/utils"
+import { ThemeProvider } from "@/components/theme-provider"
+import { Toaster } from "@/components/ui/sonner"
+import { i18n, type Locale } from "@/i18n-config"
 
-const isProduction = process.env.NEXT_PUBLIC_SITE_ENV === "production";
+const isProduction = process.env.NEXT_PUBLIC_SITE_ENV === "production"
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL!),
   title: {
-    template: "%s | Schema UI Starter",
-    default: "Sanity Next.js Website | Schema UI Starter",
+    template: "Permanent Makeup Services in Dublin and Edenderry",
+    default: "Permanent Makeup Services in Dublin and Edenderry",
   },
   openGraph: {
     images: [
@@ -26,26 +26,26 @@ export const metadata: Metadata = {
     type: "website",
   },
   robots: !isProduction ? "noindex, nofollow" : "index, follow",
-};
+}
 
 const fontSans = FontSans({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
   variable: "--font-sans",
-});
+})
 
 export async function generateStaticParams() {
-  return i18n.locales.map((locale) => ({ lang: locale }));
+  return i18n.locales.map((locale) => ({ lang: locale }))
 }
 
 export default async function RootLayout({
   children,
   params,
 }: {
-  children: React.ReactNode;
-  params: Promise<{ lang: Locale }>;
+  children: React.ReactNode
+  params: Promise<{ lang: Locale }>
 }) {
-  const { lang } = await params;
+  const { lang } = await params
   return (
     <html lang={lang} suppressHydrationWarning>
       <link rel="icon" href="/favicon.ico" />
@@ -66,5 +66,5 @@ export default async function RootLayout({
         <Toaster position="top-center" richColors />
       </body>
     </html>
-  );
+  )
 }

@@ -21,7 +21,7 @@ import { codeInput } from "@sanity/code-input"
 
 export default defineConfig({
   basePath: "/studio",
-  title: "Schema UI",
+  title: "Ianna Beauty",
   projectId,
   dataset,
   // Add and edit the content schema in the './sanity/schema' folder
