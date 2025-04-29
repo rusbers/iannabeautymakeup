@@ -14,17 +14,17 @@ export function getNavItems(
     },
     {
       label: dictionary.menu.services,
-      href: `/${lang}/about`,
+      href: `/${lang}/services`,
       target: false,
     },
     {
       label: dictionary.menu.pricing,
-      href: `/${lang}/about`,
+      href: `/${lang}/pricing`,
       target: false,
     },
     {
       label: dictionary.menu.contact,
-      href: `/${lang}/about`,
+      href: `/${lang}/contact`,
       target: false,
     },
   ]

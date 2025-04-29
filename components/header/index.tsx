@@ -2,8 +2,7 @@ import Link from "next/link"
 import Logo from "@/components/logo"
 import MobileNav from "@/components/header/mobile-nav"
 import DesktopNav from "@/components/header/desktop-nav"
-import { ModeToggle } from "@/components/menu-toggle"
-import { type getDictionary } from "@/get-dictionary"
+import { getDictionary } from "@/get-dictionary"
 import { Locale } from "@/i18n-config"
 import { getNavItems } from "@/lib/nav-items"
 
@@ -22,17 +21,15 @@ export default function Header({
   const navItems = getNavItems(lang, dictionary)
 
   return (
-    <header className="sticky top-0 w-full border-border/40 bg-background/95 z-50">
-      <div className="container flex items-center justify-between h-14">
-        <Link href="/" aria-label="Home page">
-          <Logo />
+    <header className="sticky top-0 inset-x-0 z-50 bg-background/95 backdrop-blur-lg py-6 border-b">
+      <div className="container max-w-screen-2xl flex items-center justify-between gap-4">
+        <Link href="/" aria-label="Home Page">
+          <Logo className="w-[250px] lg:w-[250px] h-auto" />
         </Link>
         <div className="hidden xl:flex gap-7 items-center justify-between">
-          <DesktopNav navItems={navItems} dictionary={dictionary} lang={lang} />
-          <ModeToggle />
+          <DesktopNav navItems={navItems} />
         </div>
         <div className="flex items-center xl:hidden">
-          <ModeToggle />
           <MobileNav navItems={navItems} dictionary={dictionary} lang={lang} />
         </div>
       </div>
