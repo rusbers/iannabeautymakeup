@@ -1,8 +1,4 @@
-import {
-  defineLocations,
-  defineDocuments,
-  PresentationPluginOptions,
-} from "sanity/presentation";
+import { defineLocations, defineDocuments, PresentationPluginOptions } from "sanity/presentation"
 
 export const resolve: PresentationPluginOptions["resolve"] = {
   locations: {
@@ -14,13 +10,7 @@ export const resolve: PresentationPluginOptions["resolve"] = {
         language: "language",
       },
       resolve: (doc) => ({
-        locations: [
-          {
-            title: doc?.title || "Untitled",
-            href: `/${doc?.language}/blog/${doc?.slug}`,
-          },
-          { title: "Blog", href: `/${doc?.language}/blog` },
-        ],
+        locations: [],
       }),
     }),
   },
@@ -37,9 +27,5 @@ export const resolve: PresentationPluginOptions["resolve"] = {
       route: "/:lang/:slug",
       filter: `_type == 'page' && slug.current == $slug && language == $lang`,
     },
-    {
-      route: "/:lang/blog/:slug",
-      filter: `_type == 'post' && slug.current == $slug && language == $lang`,
-    },
   ]),
-};
+}
