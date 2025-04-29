@@ -1,0 +1,18 @@
+{
+  "global": {
+    "english": "Engleză",
+    "romanian": "Română",
+    "form": {
+      "email": "Adresă de email",
+      "button": "Abonează-te"
+    },
+    "missing": "Lipsă",
+    "document-with-slug": "document cu slug",
+    "in-sanity-studio": "în Sanity Studio",
+    "built-by": "Creat de"
+  },
+  "menu": {
+    "home": "Acasă",
+    "about": "Despre"
+  }
+}

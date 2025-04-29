@@ -1,6 +1,6 @@
-import { defineField, defineType } from "sanity";
-import { FileText } from "lucide-react";
-import { isUniqueOtherThanLanguage } from "@/lib/is-unique-lang";
+import { defineField, defineType } from "sanity"
+import { FileText } from "lucide-react"
+import { isUniqueOtherThanLanguage } from "@/lib/is-unique-lang"
 
 export default defineType({
   name: "post",
@@ -32,8 +32,7 @@ export default defineType({
       options: {
         list: [
           { title: "English", value: "en" },
-          { title: "Spanish", value: "es" },
-          { title: "French", value: "fr" },
+          { title: "Romanian", value: "ro" },
         ],
       },
     }),
@@ -133,11 +132,11 @@ export default defineType({
       media: "image",
     },
     prepare(selection) {
-      const { author } = selection;
+      const { author } = selection
       return {
         ...selection,
         subtitle: selection.subtitle + (author && ` by ${author}`),
-      };
+      }
     },
   },
-});
+})

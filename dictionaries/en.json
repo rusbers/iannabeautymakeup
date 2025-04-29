@@ -1,8 +1,7 @@
 {
   "global": {
     "english": "English",
-    "spanish": "Spanish",
-    "french": "French",
+    "romanian": "Romanian",
     "form": {
       "email": "Email",
       "button": "Subscribe"

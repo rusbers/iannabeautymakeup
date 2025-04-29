@@ -1,29 +1,25 @@
-import Link from "next/link";
-import Logo from "@/components/logo";
-import MobileNav from "@/components/header/mobile-nav";
-import DesktopNav from "@/components/header/desktop-nav";
-import { ModeToggle } from "@/components/menu-toggle";
-import { type getDictionary } from "@/get-dictionary";
-import { Locale } from "@/i18n-config";
-import { getNavItems } from "@/lib/nav-items";
+import Link from "next/link"
+import Logo from "@/components/logo"
+import MobileNav from "@/components/header/mobile-nav"
+import DesktopNav from "@/components/header/desktop-nav"
+import { ModeToggle } from "@/components/menu-toggle"
+import { type getDictionary } from "@/get-dictionary"
+import { Locale } from "@/i18n-config"
+import { getNavItems } from "@/lib/nav-items"
 
 export const LANGUAGE_LABELS = {
-  en: (dictionary: Awaited<ReturnType<typeof getDictionary>>) =>
-    dictionary.global.english,
-  es: (dictionary: Awaited<ReturnType<typeof getDictionary>>) =>
-    dictionary.global.spanish,
-  fr: (dictionary: Awaited<ReturnType<typeof getDictionary>>) =>
-    dictionary.global.french,
-} as const;
+  en: (dictionary: Awaited<ReturnType<typeof getDictionary>>) => dictionary.global.english,
+  ro: (dictionary: Awaited<ReturnType<typeof getDictionary>>) => dictionary.global.romanian,
+} as const
 
 export default function Header({
   lang,
   dictionary,
 }: {
-  lang: Locale;
-  dictionary: Awaited<ReturnType<typeof getDictionary>>;
+  lang: Locale
+  dictionary: Awaited<ReturnType<typeof getDictionary>>
 }) {
-  const navItems = getNavItems(lang, dictionary);
+  const navItems = getNavItems(lang, dictionary)
 
   return (
     <header className="sticky top-0 w-full border-border/40 bg-background/95 z-50">
@@ -41,5 +37,5 @@ export default function Header({
         </div>
       </div>
     </header>
-  );
+  )
 }

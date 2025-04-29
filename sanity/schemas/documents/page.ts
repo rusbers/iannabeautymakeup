@@ -33,8 +33,7 @@ export default defineType({
       options: {
         list: [
           { title: "English", value: "en" },
-          { title: "Spanish", value: "es" },
-          { title: "French", value: "fr" },
+          { title: "Romanian", value: "ro" },
         ],
       },
     }),

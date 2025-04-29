@@ -20,8 +20,8 @@ export const resolve: PresentationPluginOptions["resolve"] = {
       filter: `_type == 'page' && slug.current == 'index' && language == 'en'`,
     },
     {
-      route: "/es",
-      filter: `_type == 'page' && slug.current == 'index' && language == 'es'`,
+      route: "/ro",
+      filter: `_type == 'page' && slug.current == 'index' && language == 'ro'`,
     },
     {
       route: "/:lang/:slug",

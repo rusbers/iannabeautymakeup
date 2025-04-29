@@ -6123,11 +6123,7 @@
             },
             {
               "type": "string",
-              "value": "es"
-            },
-            {
-              "type": "string",
-              "value": "fr"
+              "value": "ro"
             }
           ]
         },
@@ -6203,11 +6199,7 @@
             },
             {
               "type": "string",
-              "value": "es"
-            },
-            {
-              "type": "string",
-              "value": "fr"
+              "value": "ro"
             }
           ]
         },
@@ -6366,11 +6358,7 @@
             },
             {
               "type": "string",
-              "value": "es"
-            },
-            {
-              "type": "string",
-              "value": "fr"
+              "value": "ro"
             }
           ]
         },
@@ -6829,11 +6817,7 @@
             },
             {
               "type": "string",
-              "value": "es"
-            },
-            {
-              "type": "string",
-              "value": "fr"
+              "value": "ro"
             }
           ]
         },

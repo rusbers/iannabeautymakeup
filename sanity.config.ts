@@ -1,23 +1,23 @@
-"use client";
+"use client"
 
 /**
  * This configuration is used to for the Sanity Studio that's mounted on the `/app/studio/[[...tool]]/page.tsx` route
  */
 
-import { visionTool } from "@sanity/vision";
-import { defineConfig } from "sanity";
-import { structureTool } from "sanity/structure";
-import { presentationTool } from "sanity/presentation";
+import { visionTool } from "@sanity/vision"
+import { defineConfig } from "sanity"
+import { structureTool } from "sanity/structure"
+import { presentationTool } from "sanity/presentation"
 
 // Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
-import { apiVersion, dataset, projectId } from "./sanity/env";
-import { schema } from "./sanity/schema";
-import { resolve } from "@/sanity/presentation/resolve";
-import { structure } from "./sanity/structure";
-import { documentInternationalization } from "@sanity/document-internationalization";
-import { internationalizedArray } from "sanity-plugin-internationalized-array";
-import { assist } from "@sanity/assist";
-import { codeInput } from "@sanity/code-input";
+import { apiVersion, dataset, projectId } from "./sanity/env"
+import { schema } from "./sanity/schema"
+import { resolve } from "@/sanity/presentation/resolve"
+import { structure } from "./sanity/structure"
+import { documentInternationalization } from "@sanity/document-internationalization"
+import { internationalizedArray } from "sanity-plugin-internationalized-array"
+import { assist } from "@sanity/assist"
+import { codeInput } from "@sanity/code-input"
 
 export default defineConfig({
   basePath: "/studio",
@@ -43,8 +43,7 @@ export default defineConfig({
       // Required configuration
       supportedLanguages: [
         { id: "en", title: "English" },
-        { id: "es", title: "Spanish" },
-        { id: "fr", title: "French" },
+        { id: "ro", title: "Romanian" },
       ],
       schemaTypes: ["page", "post", "testimonial", "faq"],
     }),
@@ -53,8 +52,7 @@ export default defineConfig({
     internationalizedArray({
       languages: [
         { id: "en", title: "English" },
-        { id: "es", title: "Spanish" },
-        { id: "fr", title: "French" },
+        { id: "ro", title: "Romanian" },
       ],
       defaultLanguages: ["en"],
       fieldTypes: ["string"],
@@ -77,12 +75,11 @@ export default defineConfig({
           documentTypes: ["category"],
           languages: [
             { id: "en", title: "English" },
-            { id: "es", title: "Spanish" },
-            { id: "fr", title: "French" },
+            { id: "ro", title: "Romanian" },
           ],
         },
       },
     }),
     codeInput(),
   ],
-});
+})

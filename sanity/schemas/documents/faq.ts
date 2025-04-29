@@ -1,6 +1,6 @@
-import { defineField, defineType } from "sanity";
-import { ListCollapse } from "lucide-react";
-import { orderRankField } from "@sanity/orderable-document-list";
+import { defineField, defineType } from "sanity"
+import { ListCollapse } from "lucide-react"
+import { orderRankField } from "@sanity/orderable-document-list"
 
 export default defineType({
   name: "faq",
@@ -17,8 +17,7 @@ export default defineType({
       options: {
         list: [
           { title: "English", value: "en" },
-          { title: "Spanish", value: "es" },
-          { title: "French", value: "fr" },
+          { title: "Romanian", value: "ro" },
         ],
       },
     }),
@@ -43,7 +42,7 @@ export default defineType({
       return {
         title,
         subtitle,
-      };
+      }
     },
   },
-});
+})
