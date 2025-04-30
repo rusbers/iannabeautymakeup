@@ -183,6 +183,57 @@ export type BlockContent = Array<{
   _key: string;
 } & Code>;
 
+export type SocialMedia = {
+  _id: string;
+  _type: "socialMedia";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  icon?: IconPicker;
+  name?: string;
+  url?: string;
+  label?: Array<{
+    _key: string;
+  } & InternationalizedArrayStringValue>;
+};
+
+export type Settings = {
+  _id: string;
+  _type: "settings";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  logo?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  tagline?: Array<{
+    _key: string;
+  } & InternationalizedArrayStringValue>;
+  socialMediaLinks?: Array<{
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    _key: string;
+    [internalGroqTypeReferenceTo]?: "socialMedia";
+  }>;
+};
+
+export type IconPicker = {
+  _type: "iconPicker";
+  provider?: string;
+  name?: string;
+  svg?: string;
+};
+
 export type Code = {
   _type: "code";
   language?: string;
@@ -473,7 +524,7 @@ export type InternationalizedArrayReference = Array<{
   _key: string;
 } & InternationalizedArrayReferenceValue>;
 
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Carousel2 | Hero2 | SectionPadding | ButtonVariant | ColorVariant | Link | BlockContent | Code | SanityAssistInstructionTask | SanityAssistTaskStatus | SanityAssistSchemaTypeAnnotations | SanityAssistOutputType | SanityAssistOutputField | SanityAssistInstructionContext | AssistInstructionContext | SanityAssistInstructionUserInput | SanityAssistInstructionPrompt | SanityAssistInstructionFieldRef | SanityAssistInstruction | SanityAssistSchemaTypeField | InternationalizedArrayStringValue | InternationalizedArrayString | TranslationMetadata | InternationalizedArrayReferenceValue | Testimonial | Page | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Slug | InternationalizedArrayReference;
+export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Carousel2 | Hero2 | SectionPadding | ButtonVariant | ColorVariant | Link | BlockContent | SocialMedia | Settings | IconPicker | Code | SanityAssistInstructionTask | SanityAssistTaskStatus | SanityAssistSchemaTypeAnnotations | SanityAssistOutputType | SanityAssistOutputField | SanityAssistInstructionContext | AssistInstructionContext | SanityAssistInstructionUserInput | SanityAssistInstructionPrompt | SanityAssistInstructionFieldRef | SanityAssistInstruction | SanityAssistSchemaTypeField | InternationalizedArrayStringValue | InternationalizedArrayString | TranslationMetadata | InternationalizedArrayReferenceValue | Testimonial | Page | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Slug | InternationalizedArrayReference;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./app/sitemap.ts
 // Variable: pagesQuery
@@ -482,6 +533,20 @@ export type PagesQueryResult = Array<{
   slug: Slug | null;
   _updatedAt: string;
 }>;
+
+// Source: ./sanity/queries/footer.ts
+// Variable: queryFooterData
+// Query: *[_type == "settings" && _id == "settings"][0]{    "tagline": tagline[_key == $language][0].value,    socialMediaLinks[]->{      _id,      name,      url,      "icon": icon.svg,      "label": label[_key == $language][0].value,    }  }
+export type QueryFooterDataResult = {
+  tagline: string | null;
+  socialMediaLinks: Array<{
+    _id: string;
+    name: string | null;
+    url: string | null;
+    icon: string | null;
+    label: string | null;
+  }> | null;
+} | null;
 
 // Source: ./sanity/queries/page.ts
 // Variable: PAGE_QUERY
@@ -645,6 +710,7 @@ import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
     "\n    *[_type == 'page'] | order(slug.current) {\n      slug,\n      _updatedAt\n    }\n  ": PagesQueryResult;
+    "\n  *[_type == \"settings\" && _id == \"settings\"][0]{\n    \"tagline\": tagline[_key == $language][0].value,\n    socialMediaLinks[]->{\n      _id,\n      name,\n      url,\n      \"icon\": icon.svg,\n      \"label\": label[_key == $language][0].value,\n    }\n  }\n": QueryFooterDataResult;
     "\n  *[_type == \"page\" && slug.current == $slug && language == $language][0]{\n    blocks[]{\n      \n  _type == \"hero-2\" => {\n    _type,\n    _key,\n    tagLine,\n    title,\n    body[]{\n      ...,\n      _type == \"image\" => {\n        ...,\n        asset->{\n          _id,\n          url,\n          mimeType,\n          metadata {\n            lqip,\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    },\n    links,\n  }\n,\n      \n  _type == \"carousel-2\" => {\n    _type,\n    _key,\n    padding,\n    colorVariant,\n    testimonial[]->{\n      _id,\n      name,\n      title,\n      image{\n        asset->{\n          _id,\n          url,\n          mimeType,\n          metadata {\n            lqip,\n            dimensions {\n              width,\n              height\n            }\n          }\n        },\n        alt\n      },\n      body[]{\n        ...,\n        _type == \"image\" => {\n          ...,\n          asset->{\n            _id,\n            url,\n            mimeType,\n            metadata {\n              lqip,\n              dimensions {\n                width,\n                height\n              }\n            }\n          }\n        }\n      },\n      rating,\n    },\n  }\n,\n    },\n    meta_title,\n    meta_description,\n    noindex,\n    ogImage {\n      asset->{\n        _id,\n        url,\n        metadata {\n          dimensions {\n            width,\n            height\n          }\n        }\n      },\n    }\n  }\n": PAGE_QUERYResult;
     "*[_type == \"page\" && defined(slug) && language == $language]{slug}": PAGES_SLUGS_QUERYResult;
   }

@@ -18,6 +18,7 @@ import { documentInternationalization } from "@sanity/document-internationalizat
 import { internationalizedArray } from "sanity-plugin-internationalized-array"
 import { assist } from "@sanity/assist"
 import { codeInput } from "@sanity/code-input"
+import { iconPicker } from "sanity-plugin-icon-picker"
 
 export default defineConfig({
   basePath: "/studio",
@@ -72,7 +73,7 @@ export default defineConfig({
         },
         field: {
           // Translate fields for the following document types
-          documentTypes: ["category"],
+          documentTypes: ["settings", "socialMedia"],
           languages: [
             { id: "en", title: "English" },
             { id: "ro", title: "Romanian" },
@@ -81,5 +82,6 @@ export default defineConfig({
       },
     }),
     codeInput(),
+    iconPicker(),
   ],
 })

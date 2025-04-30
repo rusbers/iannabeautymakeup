@@ -12,12 +12,16 @@ import sectionPadding from "./schemas/blocks/shared/section-padding"
 // Schema UI objects
 import hero2 from "./schemas/blocks/hero/hero-2"
 import carousel2 from "./schemas/blocks/carousel/carousel-2"
+import { settings } from "./schemas/documents/settings"
+import { socialMedia } from "./schemas/documents/social-media"
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
     // documents
     page,
     testimonial,
+    settings,
+    socialMedia,
     // shared objects
     blockContent,
     link,

@@ -91,7 +91,7 @@
   --primary: hsl(43.3 96.4% 56.3%);
   --primary-foreground: hsl(20.9 91.7% 14.1%);
   --secondary: hsl(12 6.5% 15.1%);
-  --secondary-foreground: hsl(60 9.1% 97.8%);
+  --secondary-foreground: hsl(220 14% 91%);
   --muted: hsl(12 6.5% 15.1%);
   --muted-foreground: hsl(24 5.4% 63.9%);
   --accent: hsl(12 6.5% 15.1%);
@@ -185,7 +185,7 @@
   content: "";
   display: block;
   width: 100%;
-  border-top: 1px solid hsl(var(--gold-900));
+  border-top: 1px solid var(--gold-900);
 }
 
 /* SCROLLBAR STYLING */
@@ -210,4 +210,10 @@
 * {
   scrollbar-width: thin;
   scrollbar-color: #0f1015 rgba(255, 255, 255, 0.1);
+}
+
+.sanity-icon {
+  svg {
+    font-size: 2rem !important;
+  }
 }
