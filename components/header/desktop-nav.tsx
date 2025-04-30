@@ -1,22 +1,25 @@
-import Link from "next/link"
 import { NavItem } from "@/types"
 import LocaleSwitcher from "./locale-switcher"
+import { cn } from "@/lib/utils"
+import { NavLink } from "./nav-link"
 
-export default function DesktopNav({ navItems }: { navItems: NavItem[] }) {
+type DesktopNavbarProps = {
+  className?: string
+  navItems: NavItem[]
+}
+
+// TODO get the actual hight h-[115px] lg:h-[120px]
+
+export const DesktopNav = ({ className, navItems }: DesktopNavbarProps) => {
   return (
-    <div className="hidden xl:flex items-center gap-7 text-primary">
-      {navItems.map((navItem) => (
-        <Link
-          key={navItem.label}
-          href={navItem.href}
-          target={navItem.target ? "_blank" : undefined}
-          rel={navItem.target ? "noopener noreferrer" : undefined}
-          className="transition-colors hover:text-foreground/80 text-foreground/60 text-sm"
-        >
+    <nav className={cn("", className)}>
+      {navItems.map((navItem, i) => (
+        <NavLink key={navItem.label + " " + i} href={navItem.href}>
           {navItem.label}
-        </Link>
+        </NavLink>
       ))}
+      {/* TODO Contact Button */}
       <LocaleSwitcher className="w-full px-2 py-1.5 text-sm hover:bg-accent hover:text-accent-foreground cursor-pointer rounded-sm outline-none" />
-    </div>
+    </nav>
   )
 }

@@ -56,7 +56,7 @@
   --muted: 60 4.8% 95.9%;
   --muted-foreground: 25 5.3% 44.7%;
   --accent: 60 4.8% 95.9%;
-  --accent-foreground: 24 9.8% 10%;
+  --accent-foreground: 45.9 64.6% 52.4%;
   --destructive: 0 84.2% 60.2%;
   --destructive-foreground: 60 9.1% 97.8%;
   --border: 20 5.9% 90%;
@@ -68,16 +68,6 @@
   --chart-3: 197 37% 24%;
   --chart-4: 43 74% 66%;
   --chart-5: 27 87% 67%;
-  /* Only used: gold-100,500,600,800,900 */
-  --gold-100: 45.5 64.7% 90%;
-  --gold-200: 45.7 64.9% 81%;
-  --gold-300: 46.2 64.9% 71%;
-  --gold-400: 45.6 64.8% 62.2%;
-  --gold-500: 45.9 64.6% 52.4%;
-  --gold-600: 46.1 64.5% 42%;
-  --gold-700: 45.9 64.6% 31%;
-  --gold-800: 46.1 64.5% 21%;
-  --gold-900: 45.5 64.7% 10%;
   --radius: 0rem;
 }
 .dark {
@@ -94,7 +84,7 @@
   --muted: 12 6.5% 15.1%;
   --muted-foreground: 24 5.4% 63.9%;
   --accent: 12 6.5% 15.1%;
-  --accent-foreground: 60 9.1% 97.8%;
+  --accent-foreground: 45.9 64.6% 52.4%;
   --destructive: 0 62.8% 30.6%;
   --destructive-foreground: 60 9.1% 97.8%;
   --border: 12 6.5% 15.1%;
@@ -145,6 +135,19 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+}
+
+@theme {
+    /* Only used: gold-100,500,600,800,900 */
+    --gold-100: hsl(45.5 64.7% 90%);
+    --gold-200: hsl(45.7 64.9% 81%);
+    --gold-300: hsl(46.2 64.9% 71%);
+    --gold-400: hsl(45.6 64.8% 62.2%);
+    --gold-500: hsl(45.9 64.6% 52.4%);
+    --gold-600: hsl(46.1 64.5% 42%);
+    --gold-700: hsl(45.9 64.6% 31%);
+    --gold-800: hsl(46.1 64.5% 21%);
+    --gold-900: hsl(45.5 64.7% 10%);
 }
 
 @utility container {

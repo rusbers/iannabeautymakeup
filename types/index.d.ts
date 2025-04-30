@@ -1,10 +1,6 @@
+// TODO update the type
 export type NavItem = {
-  label: string;
-  href: string;
-  target: boolean;
-};
-
-export type BreadcrumbLink = {
-  label: string;
-  href: string;
-};
+  label: string
+  href: string
+  target: boolean
+}
