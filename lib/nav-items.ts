@@ -9,7 +9,7 @@ export function getNavItems(
   return [
     {
       label: dictionary.menu.home,
-      href: `/${lang}/`,
+      href: `/${lang}`,
       target: false,
     },
     {

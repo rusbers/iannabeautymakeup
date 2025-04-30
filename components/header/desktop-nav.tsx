@@ -8,8 +8,6 @@ type DesktopNavbarProps = {
   navItems: NavItem[]
 }
 
-// TODO get the actual hight h-[115px] lg:h-[120px]
-
 export const DesktopNav = ({ className, navItems }: DesktopNavbarProps) => {
   return (
     <nav className={cn("", className)}>

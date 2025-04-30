@@ -6,11 +6,6 @@ import { getDictionary } from "@/get-dictionary"
 import { Locale } from "@/i18n-config"
 import { getNavItems } from "@/lib/nav-items"
 
-export const LANGUAGE_LABELS = {
-  en: (dictionary: Awaited<ReturnType<typeof getDictionary>>) => dictionary.global.english,
-  ro: (dictionary: Awaited<ReturnType<typeof getDictionary>>) => dictionary.global.romanian,
-} as const
-
 export default function Header({
   lang,
   dictionary,
@@ -21,6 +16,7 @@ export default function Header({
   const navItems = getNavItems(lang, dictionary)
 
   return (
+    // TODO get the actual hight h-[115px] lg:h-[120px]
     <header className="sticky top-0 inset-x-0 z-50 bg-background/95 backdrop-blur-lg py-6 border-b">
       <div className="container max-w-screen-2xl flex items-center justify-between gap-4">
         <Link href="/" aria-label="Home Page">
@@ -29,9 +25,7 @@ export default function Header({
 
         <DesktopNav className="hidden lg:flex items-center gap-6" navItems={navItems} />
 
-        <div className="flex items-center xl:hidden">
-          <MobileNav navItems={navItems} dictionary={dictionary} lang={lang} />
-        </div>
+        <MobileNav className="lg:hidden" navItems={navItems} />
       </div>
     </header>
   )
