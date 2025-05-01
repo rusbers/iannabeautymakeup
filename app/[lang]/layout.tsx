@@ -1,9 +1,10 @@
 import type { Metadata } from "next"
-import { Inter as FontSans } from "next/font/google"
+import { Montserrat, Playfair_Display } from "next/font/google"
 import "../globals.css"
 import { cn } from "@/lib/utils"
 import { ThemeProvider } from "@/components/theme-provider"
 import { i18n, type Locale } from "@/i18n-config"
+import { preconnect, prefetchDNS } from "react-dom"
 
 const isProduction = process.env.NEXT_PUBLIC_SITE_ENV === "production"
 
@@ -27,10 +28,15 @@ export const metadata: Metadata = {
   robots: !isProduction ? "noindex, nofollow" : "index, follow",
 }
 
-const fontSans = FontSans({
+const playfairDisplay = Playfair_Display({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-  variable: "--font-sans",
+  variable: "--font-playfair-display",
+})
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-montserrat",
 })
 
 export async function generateStaticParams() {
@@ -45,13 +51,16 @@ export default async function RootLayout({
   params: Promise<{ lang: Locale }>
 }) {
   const { lang } = await params
+  preconnect("https://cdn.sanity.io")
+  prefetchDNS("https://cdn.sanity.io")
   return (
     <html lang={lang} suppressHydrationWarning>
       <link rel="icon" href="/favicon.ico" />
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased overscroll-none",
-          fontSans.variable
+          playfairDisplay.variable,
+          montserrat.variable,
+          "min-h-screen bg-background antialiased overscroll-none font-montserrat"
         )}
       >
         <ThemeProvider
