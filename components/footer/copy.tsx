@@ -17,7 +17,7 @@ export function Copy({ as: Tag = "footer", dictionary, className }: CopyProps) {
     >
       <small>{`© ${new Date().getFullYear()} ${dictionary.global["copy"]}`}</small>
       <small>
-        {dictionary.global["built-by"]} <span className="text-accent-foreground">@web01studio</span>
+        {dictionary.global["built-by"]} <span className="text-gold-600">@web01studio</span>
       </small>
     </Tag>
   )
