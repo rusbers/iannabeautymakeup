@@ -1,6 +1,6 @@
 import { Star } from "lucide-react"
 import { defineArrayMember, defineField, defineType } from "sanity"
-import { buttonsField, richHeroTitleField, richTextField } from "../shared/common"
+import { buttonsField, iconPickerField, imageField, richTextField } from "../shared/common"
 
 export const hero = defineType({
   name: "hero",
@@ -16,20 +16,13 @@ export const hero = defineType({
     },
   ],
   fields: [
-    { ...richHeroTitleField, title: "Title" },
-    { ...richTextField, title: "Text" },
     defineField({
-      name: "icon",
-      title: "Icon",
-      options: {
-        storeSvg: true,
-        providers: ["fi"],
-      },
-      type: "iconPicker",
-      description: "Choose a small picture symbol to highlight the services",
-      validation: (Rule) => Rule.required(),
-      fieldset: "featuredServices",
+      name: "richHeroTitle",
+      title: "Title",
+      type: "richHeroTitle",
     }),
+    richTextField,
+    { ...iconPickerField, fieldset: "featuredServices" },
     defineField({
       name: "services",
       fieldset: "featuredServices",
@@ -38,25 +31,7 @@ export const hero = defineType({
       validation: (Rule) => Rule.required().max(3),
     }),
     buttonsField,
-    defineField({
-      name: "image",
-      title: "Image",
-      type: "image",
-      fields: [
-        defineField({
-          name: "imageDescription",
-          title: "Alternative Text",
-          type: "string",
-          description: "Describe the image for accessibility and SEO.",
-        }),
-      ],
-      options: {
-        hotspot: true,
-        aiAssist: {
-          imageDescriptionField: "imageDescription",
-        },
-      },
-    }),
+    imageField,
   ],
   preview: {
     select: {

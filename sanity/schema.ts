@@ -18,6 +18,7 @@ import { richHeroTitle, richSubtitle, richText } from "./schemas/blocks/shared/r
 import { hero } from "./schemas/blocks/hero/hero"
 import { button } from "./schemas/blocks/shared/button"
 import { customUrl } from "./schemas/blocks/shared/custom-url"
+import { featuredServicesWithIcon } from "./schemas/blocks/featured-services-with-icon"
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -41,5 +42,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     hero,
     hero2,
     carousel2,
+    featuredServicesWithIcon,
   ],
 }

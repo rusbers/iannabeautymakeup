@@ -19,6 +19,7 @@ import { internationalizedArray } from "sanity-plugin-internationalized-array"
 import { assist } from "@sanity/assist"
 import { codeInput } from "@sanity/code-input"
 import { iconPicker } from "sanity-plugin-icon-picker"
+import { inlineSvgInput } from "@focus-reactive/sanity-plugin-inline-svg-input"
 
 export default defineConfig({
   basePath: "/studio",
@@ -83,5 +84,6 @@ export default defineConfig({
     }),
     codeInput(),
     iconPicker(),
+    inlineSvgInput(),
   ],
 })
