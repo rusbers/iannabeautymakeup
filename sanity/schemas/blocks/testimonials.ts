@@ -1,25 +1,17 @@
-import { defineField, defineType } from "sanity";
-import { Quote } from "lucide-react";
+import { defineField, defineType } from "sanity"
+import { Quote } from "lucide-react"
+import { buttonsField, richSubtitleField, titleField } from "./shared/common"
 
-export default defineType({
-  name: "carousel-2",
+export const testimonials = defineType({
+  name: "testimonials",
   type: "object",
-  title: "Carousel 2",
+  title: "Testimonials",
   icon: Quote,
-  description: "A carousel of testimonials",
   fields: [
+    titleField,
+    richSubtitleField,
     defineField({
-      name: "padding",
-      type: "section-padding",
-    }),
-    defineField({
-      name: "colorVariant",
-      type: "color-variant",
-      title: "Color Variant",
-      description: "Select a background color variant",
-    }),
-    defineField({
-      name: "testimonial",
+      name: "testimonials",
       type: "array",
       of: [
         {
@@ -35,6 +27,7 @@ export default defineType({
         },
       ],
     }),
+    buttonsField,
   ],
   preview: {
     select: {
@@ -44,7 +37,7 @@ export default defineType({
       return {
         title: "Testimonials Carousel",
         subtitle: title,
-      };
+      }
     },
   },
-});
+})

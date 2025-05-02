@@ -12,7 +12,7 @@ import { buttonVariant } from "./schemas/blocks/shared/button-variant"
 import sectionPadding from "./schemas/blocks/shared/section-padding"
 // Schema UI objects
 import hero2 from "./schemas/blocks/hero/hero-2"
-import carousel2 from "./schemas/blocks/carousel/carousel-2"
+import { testimonials } from "./schemas/blocks/testimonials"
 import { settings } from "./schemas/documents/settings"
 import { socialMedia } from "./schemas/documents/social-media"
 import { richHeroTitle, richSubtitle, richText } from "./schemas/blocks/shared/rich-text"
@@ -49,8 +49,8 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     aboutMe,
     imageGridGallery,
     priceList,
+    testimonials,
     // not used
     hero2,
-    carousel2,
   ],
 }

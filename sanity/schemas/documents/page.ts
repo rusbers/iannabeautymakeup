@@ -12,6 +12,7 @@ export default defineType({
     {
       name: "content",
       title: "Content",
+      default: true,
     },
     {
       name: "seo",
@@ -60,9 +61,9 @@ export default defineType({
         { type: "aboutMe" },
         { type: "imageGridGallery" },
         { type: "priceList" },
+        { type: "testimonials" },
         // not used
         { type: "hero-2" },
-        { type: "carousel-2" },
       ],
     }),
     defineField({

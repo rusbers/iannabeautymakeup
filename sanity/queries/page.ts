@@ -1,11 +1,11 @@
 import { groq } from "next-sanity"
 import { hero2Query } from "./hero/hero-2"
-import { carousel2Query } from "./carousel/carousel-2"
 import { heroBlockQuery } from "./hero"
 import { featuredServicesBlockQuery } from "./featured-services-with-icon"
 import { aboutMeBlockQuery } from "./about-me"
 import { imageGridGalleryBlockQuery } from "./image-grid-gallery"
 import { priceListBlockQuery } from "./price-list"
+import { testimonialsBlockQuery } from "./testimonials"
 
 export const PAGE_QUERY = groq`
   *[_type == "page" && slug.current == $slug && language == $language][0]{
@@ -15,9 +15,9 @@ export const PAGE_QUERY = groq`
       ${aboutMeBlockQuery},
       ${imageGridGalleryBlockQuery},
       ${priceListBlockQuery},
+      ${testimonialsBlockQuery},
       // not used
       ${hero2Query},
-      ${carousel2Query},
     },
     meta_title,
     meta_description,

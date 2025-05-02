@@ -53,8 +53,6 @@ export function PriceListBlock({
         </div>
         {image && (
           <div className="relative size-full">
-            <div className="absolute inset-0 bg-black/15 z-10"></div>
-            {/* TODO it doesn't have the overlay applied because the darkener layer has a higher z-index */}
             <SanityImage
               className="w-full h-full object-cover object-right sm:hidden lg:inline-block"
               fill

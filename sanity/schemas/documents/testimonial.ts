@@ -1,10 +1,13 @@
 import { defineField, defineType } from "sanity"
 import { orderRankField } from "@sanity/orderable-document-list"
+import { richTextField } from "../blocks/shared/common"
+import { Star } from "lucide-react"
 
 export default defineType({
   name: "testimonial",
   title: "Testimonials",
   type: "document",
+  icon: Star,
   fields: [
     defineField({
       name: "language",
@@ -20,40 +23,28 @@ export default defineType({
       },
     }),
     defineField({
-      name: "name",
+      name: "username",
       type: "string",
+      title: "Username",
+      description: "The instagram username of the client",
+      validation: (Rule) => Rule.required().error("Username is required"),
     }),
-    defineField({
-      name: "title",
-      type: "string",
-    }),
-    defineField({
-      name: "image",
-      type: "image",
-    }),
-    defineField({
-      name: "body",
-      type: "block-content",
-    }),
-    defineField({
-      name: "rating",
-      type: "number",
-      validation: (rule) => rule.min(1).max(5),
-    }),
+    { ...richTextField, title: "Content" },
     orderRankField({ type: "testimonial" }),
   ],
 
   preview: {
     select: {
-      title: "name",
-      subtitle: "language",
-      media: "image",
+      title: "username",
+      language: "language",
+      content: "richText",
     },
-    prepare({ title, subtitle, media }) {
+    prepare({ title, language, content }) {
+      // @ts-ignore
+      const plainText = content?.[0]?.children?.map((child) => child.text).join("") || ""
       return {
         title,
-        subtitle,
-        media,
+        subtitle: `${language}: "${plainText}"`,
       }
     },
   },
