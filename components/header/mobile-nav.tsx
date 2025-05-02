@@ -47,7 +47,7 @@ export default function MobileNav({
                 {item.label}
               </NavLink>
             ))}
-            <LocaleSwitcher className="h-10 hover:text-decoration-none hover:opacity-50 text-lg" />
+            <LocaleSwitcher variant="long" />
           </nav>
         </SheetContent>
       </Sheet>

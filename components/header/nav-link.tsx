@@ -22,7 +22,7 @@ export const NavLink = ({
     <Link
       href={href}
       className={cn(
-        "px-8 flex items-center justify-center gap-2 transition-all duration-300 transform w-full uppercase py-3 hover:text-accent-foreground",
+        "px-3 flex items-center justify-center gap-2 transition-all duration-300 transform w-full uppercase py-3 hover:text-accent-foreground",
         isCurrentPathname && "text-accent-foreground",
         className
       )}

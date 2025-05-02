@@ -17,7 +17,7 @@ export const DesktopNav = ({ className, navItems }: DesktopNavbarProps) => {
         </NavLink>
       ))}
       {/* TODO Contact Button */}
-      <LocaleSwitcher className="w-full px-2 py-1.5 text-sm hover:bg-accent hover:text-accent-foreground cursor-pointer rounded-sm outline-none" />
+      <LocaleSwitcher variant="short" />
     </nav>
   )
 }
