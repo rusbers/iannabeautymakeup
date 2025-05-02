@@ -1,6 +1,6 @@
 import { Star } from "lucide-react"
 import { defineArrayMember, defineField, defineType } from "sanity"
-import { buttonsField, iconPickerField, imageField, richTextField } from "../shared/common"
+import { buttonsField, iconPickerField, imageField, richTextField } from "./shared/common"
 
 export const hero = defineType({
   name: "hero",

@@ -4,7 +4,6 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-  CarouselDots,
 } from "@/components/ui/carousel"
 import { Card, CardContent } from "@/components/ui/card"
 import { PAGE_QUERYResult } from "@/sanity.types"

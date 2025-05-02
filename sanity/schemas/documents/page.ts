@@ -3,7 +3,7 @@ import { Files } from "lucide-react"
 import { orderRankField } from "@sanity/orderable-document-list"
 import { isUniqueOtherThanLanguage } from "@/lib/is-unique-lang"
 
-export default defineType({
+export const page = defineType({
   name: "page",
   type: "document",
   title: "Page",
@@ -62,8 +62,6 @@ export default defineType({
         { type: "imageGridGallery" },
         { type: "priceList" },
         { type: "testimonials" },
-        // not used
-        { type: "hero-2" },
       ],
     }),
     defineField({

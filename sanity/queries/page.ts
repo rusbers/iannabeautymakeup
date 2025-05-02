@@ -1,5 +1,4 @@
 import { groq } from "next-sanity"
-import { hero2Query } from "./hero/hero-2"
 import { heroBlockQuery } from "./hero"
 import { featuredServicesBlockQuery } from "./featured-services-with-icon"
 import { aboutMeBlockQuery } from "./about-me"
@@ -16,8 +15,6 @@ export const PAGE_QUERY = groq`
       ${imageGridGalleryBlockQuery},
       ${priceListBlockQuery},
       ${testimonialsBlockQuery},
-      // not used
-      ${hero2Query},
     },
     meta_title,
     meta_description,

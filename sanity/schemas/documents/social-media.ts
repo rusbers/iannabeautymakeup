@@ -1,7 +1,7 @@
 import { Link } from "lucide-react"
 import { defineField, defineType } from "sanity"
-import { iconField } from "../blocks/shared/icon-field"
 import { preview } from "sanity-plugin-icon-picker"
+import { iconPickerField } from "../blocks/shared/common"
 
 export const socialMedia = defineType({
   name: "socialMedia",
@@ -10,7 +10,7 @@ export const socialMedia = defineType({
   icon: Link,
   fields: [
     {
-      ...iconField,
+      ...iconPickerField,
       title: "Icon",
       description: "Pick an icon relevant for this social media network",
       validation: (Rule) => Rule.required(),

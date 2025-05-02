@@ -1,6 +1,5 @@
 import { PAGE_QUERYResult } from "@/sanity.types"
 import { Locale } from "@/i18n-config"
-import Hero2 from "@/components/blocks/hero/hero-2"
 import { TestimonialsBlock } from "@/components/blocks/testimonials"
 import { HeroBlock } from "./hero"
 import { FeaturedServicesWithIconBlock } from "./featured-services-with-icon"
@@ -19,8 +18,6 @@ const componentMap: {
   imageGridGallery: GridGalleryBlock,
   priceList: PriceListBlock,
   testimonials: TestimonialsBlock,
-  // Not Used
-  "hero-2": Hero2,
 }
 
 export default function Blocks({ blocks, lang }: { blocks?: Block[]; lang: Locale }) {

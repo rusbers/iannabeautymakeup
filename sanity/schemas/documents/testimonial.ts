@@ -3,7 +3,7 @@ import { orderRankField } from "@sanity/orderable-document-list"
 import { richTextField } from "../blocks/shared/common"
 import { Star } from "lucide-react"
 
-export default defineType({
+export const testimonial = defineType({
   name: "testimonial",
   title: "Testimonials",
   type: "document",
