@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 
 const playfairDisplay = Playfair_Display({
   subsets: ["latin"],
-  variable: "--font-playfair-display",
+  variable: "--font-playfair",
 })
 
 const montserrat = Montserrat({

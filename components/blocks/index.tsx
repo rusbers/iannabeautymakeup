@@ -2,12 +2,14 @@ import { PAGE_QUERYResult } from "@/sanity.types"
 import { Locale } from "@/i18n-config"
 import Hero2 from "@/components/blocks/hero/hero-2"
 import Carousel2 from "@/components/blocks/carousel/carousel-2"
+import { HeroBlock } from "./hero"
 
 type Block = NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number]
 
 const componentMap: {
   [K in Block["_type"]]: React.ComponentType<Extract<Block, { _type: K }>>
 } = {
+  hero: HeroBlock,
   "hero-2": Hero2,
   "carousel-2": Carousel2,
 }

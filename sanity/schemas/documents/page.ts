@@ -54,10 +54,7 @@ export default defineType({
       name: "blocks",
       type: "array",
       group: "content",
-      of: [
-        { type: "hero-2" },
-        { type: "carousel-2" },
-      ],
+      of: [{ type: "hero" }, { type: "hero-2" }, { type: "carousel-2" }],
     }),
     defineField({
       name: "meta_title",

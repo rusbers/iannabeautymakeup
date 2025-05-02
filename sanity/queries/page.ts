@@ -1,10 +1,12 @@
 import { groq } from "next-sanity"
 import { hero2Query } from "./hero/hero-2"
 import { carousel2Query } from "./carousel/carousel-2"
+import { heroBlockQuery } from "./hero"
 
 export const PAGE_QUERY = groq`
   *[_type == "page" && slug.current == $slug && language == $language][0]{
     blocks[]{
+      ${heroBlockQuery},
       ${hero2Query},
       ${carousel2Query},
     },

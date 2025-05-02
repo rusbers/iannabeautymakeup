@@ -14,6 +14,10 @@ import hero2 from "./schemas/blocks/hero/hero-2"
 import carousel2 from "./schemas/blocks/carousel/carousel-2"
 import { settings } from "./schemas/documents/settings"
 import { socialMedia } from "./schemas/documents/social-media"
+import { richHeroTitle, richSubtitle, richText } from "./schemas/blocks/shared/rich-text"
+import { hero } from "./schemas/blocks/hero/hero"
+import { button } from "./schemas/blocks/shared/button"
+import { customUrl } from "./schemas/blocks/shared/custom-url"
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -28,7 +32,13 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     colorVariant,
     buttonVariant,
     sectionPadding,
+    customUrl,
+    button,
+    richHeroTitle,
+    richText,
+    richSubtitle,
     // blocks
+    hero,
     hero2,
     carousel2,
   ],

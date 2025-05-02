@@ -54,6 +54,7 @@
   --gold-700: hsl(45.9 64.6% 31%);
   --gold-800: hsl(46.1 64.5% 21%);
   --gold-900: hsl(45.5 64.7% 10%);
+
   /* Shadcn UI */
   --background: hsl(0 0% 100%);
   --foreground: hsl(20 14.3% 4.1%);
@@ -138,6 +139,15 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  --color-gold-100: var(--gold-100);
+  --color-gold-200: var(--gold-200);
+  --color-gold-300: var(--gold-300);
+  --color-gold-400: var(--gold-400);
+  --color-gold-500: var(--gold-500);
+  --color-gold-600: var(--gold-600);
+  --color-gold-700: var(--gold-700);
+  --color-gold-800: var(--gold-800);
+  --color-gold-900: var(--gold-900);
 }
 
 @utility container {
@@ -217,4 +227,11 @@
   svg {
     font-size: 2rem !important;
   }
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
 }
