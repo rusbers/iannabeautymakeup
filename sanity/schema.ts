@@ -7,9 +7,9 @@ import { socialMedia } from "./schemas/documents/social-media"
 import { settings } from "./schemas/documents/settings"
 
 // Schema UI shared objects
-import { customUrl } from "./schemas/blocks/shared/custom-url"
-import { button } from "./schemas/blocks/shared/button"
-import { richHeroTitle, richSubtitle, richText } from "./schemas/blocks/shared/rich-text"
+import { customUrl } from "./schemas/blocks/shared/objects/custom-url"
+import { button } from "./schemas/blocks/shared/objects/button"
+import { richHeroTitle, richSubtitle, richText } from "./schemas/blocks/shared/objects/rich-text"
 
 // Schema UI objects
 import { hero } from "./schemas/blocks/hero"

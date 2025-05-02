@@ -6,7 +6,7 @@ import {
   richSubtitleField,
   richTextField,
   titleField,
-} from "./shared/common"
+} from "./shared/common-fields"
 
 export const aboutMe = defineType({
   name: "aboutMe",

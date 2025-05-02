@@ -1,7 +1,7 @@
 import { InlineSvgPreviewItem } from "@focus-reactive/sanity-plugin-inline-svg-input"
 import { Link } from "lucide-react"
 import { defineArrayMember, defineField, defineType } from "sanity"
-import { buttonsField } from "./shared/common"
+import { buttonsField } from "./shared/common-fields"
 
 export const featuredServicesWithIcon = defineType({
   name: "featuredServicesWithIcon",

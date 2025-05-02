@@ -5,7 +5,7 @@ import {
   AccentColorTextIcon,
   HeroTitle,
   Subtitle,
-} from "../components/richtext-decorators"
+} from "../../../previews/richtext-decorators"
 
 // 1. RICH TEXT (General-purpose rich text)
 

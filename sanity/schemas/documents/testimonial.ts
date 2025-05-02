@@ -1,6 +1,6 @@
 import { defineField, defineType } from "sanity"
 import { orderRankField } from "@sanity/orderable-document-list"
-import { richTextField } from "../blocks/shared/common"
+import { richTextField } from "../blocks/shared/common-fields"
 import { Star } from "lucide-react"
 
 export const testimonial = defineType({

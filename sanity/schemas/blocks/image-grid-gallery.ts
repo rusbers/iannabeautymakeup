@@ -1,6 +1,6 @@
 import { Grid3x3 } from "lucide-react"
 import { defineField, defineType } from "sanity"
-import { galleryField, titleField } from "./shared/common"
+import { galleryField, titleField } from "./shared/common-fields"
 
 export const imageGridGallery = defineType({
   name: "imageGridGallery",

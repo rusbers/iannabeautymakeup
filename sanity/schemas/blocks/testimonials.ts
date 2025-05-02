@@ -1,6 +1,6 @@
 import { defineField, defineType } from "sanity"
 import { Quote } from "lucide-react"
-import { buttonsField, richSubtitleField, titleField } from "./shared/common"
+import { buttonsField, richSubtitleField, titleField } from "./shared/common-fields"
 
 export const testimonials = defineType({
   name: "testimonials",

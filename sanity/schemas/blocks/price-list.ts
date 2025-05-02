@@ -1,6 +1,6 @@
 import { List } from "lucide-react"
 import { defineArrayMember, defineField, defineType } from "sanity"
-import { buttonsField, imageField, richSubtitleField, titleField } from "./shared/common"
+import { buttonsField, imageField, richSubtitleField, titleField } from "./shared/common-fields"
 
 export const priceList = defineType({
   name: "priceList",
