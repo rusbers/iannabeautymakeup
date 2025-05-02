@@ -65,3 +65,13 @@ export const imageField = defineField({
     },
   },
 })
+
+export const galleryField = defineField({
+  name: "images",
+  title: "Gallery",
+  type: "array",
+  options: {
+    layout: "grid",
+  },
+  of: [imageField],
+})

@@ -58,6 +58,7 @@ export default defineType({
         { type: "hero" },
         { type: "featuredServicesWithIcon" },
         { type: "aboutMe" },
+        { type: "imageGridGallery" },
         // not used
         { type: "hero-2" },
         { type: "carousel-2" },

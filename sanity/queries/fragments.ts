@@ -11,7 +11,7 @@ export const imagesFragment = /* groq */ `
   images[]{
     "image": {
       ...,
-      "alt": coalesce(asset->altText, asset->originalFilename, "Image-Broken"),
+      "alt": imageDescription,
       "blurData": asset->metadata.lqip,
       "dominantColor": asset->metadata.palette.dominant.background,
     },

@@ -20,6 +20,7 @@ import { button } from "./schemas/blocks/shared/button"
 import { customUrl } from "./schemas/blocks/shared/custom-url"
 import { featuredServicesWithIcon } from "./schemas/blocks/featured-services-with-icon"
 import { aboutMe } from "./schemas/blocks/about-me"
+import { imageGridGallery } from "./schemas/blocks/image-grid-gallery"
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -43,6 +44,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     hero,
     featuredServicesWithIcon,
     aboutMe,
+    imageGridGallery,
     // not used
     hero2,
     carousel2,
