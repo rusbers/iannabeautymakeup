@@ -2,6 +2,7 @@ import { type SchemaTypeDefinition } from "sanity"
 // documents
 import page from "./schemas/documents/page"
 import testimonial from "./schemas/documents/testimonial"
+import { price } from "./schemas/documents/price"
 
 // Schema UI shared objects
 import blockContent from "./schemas/blocks/shared/block-content"
@@ -26,6 +27,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
     // documents
     page,
+    price,
     testimonial,
     settings,
     socialMedia,

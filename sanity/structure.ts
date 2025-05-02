@@ -1,21 +1,5 @@
 import { orderableDocumentListDeskItem } from "@sanity/orderable-document-list"
-import { Files, Link, Quote, Settings } from "lucide-react"
-
-// const createSingleTon = ({ S, type, title, icon }: CreateSingleTon) => {
-//   const newTitle = title ?? getTitleCase(type)
-//   return S.listItem()
-//     .title(newTitle)
-//     .icon(icon ?? File)
-//     .child(S.document().schemaType(type).documentId(type))
-// }
-
-// const createList = ({ S, type, icon, title, id }: CreateList) => {
-//   const newTitle = title ?? getTitleCase(type)
-//   return S.documentTypeListItem(type)
-//     .id(id ?? type)
-//     .title(newTitle)
-//     .icon(icon ?? File)
-// }
+import { Euro, Files, Link, Quote, Settings } from "lucide-react"
 
 export const structure = (S: any, context: any) =>
   S.list()
@@ -28,6 +12,7 @@ export const structure = (S: any, context: any) =>
         S,
         context,
       }),
+      S.documentTypeListItem("price").id("price").title("Prices").icon(Euro),
       orderableDocumentListDeskItem({
         type: "testimonial",
         title: "Testimonials",
