@@ -5,6 +5,7 @@ import { testimonial } from "./schemas/documents/testimonial"
 import { price } from "./schemas/documents/price"
 import { socialMedia } from "./schemas/documents/social-media"
 import { settings } from "./schemas/documents/settings"
+import { idEntry } from "./schemas/documents/id-entry"
 
 // Schema UI shared objects
 import { customUrl } from "./schemas/blocks/shared/objects/custom-url"
@@ -27,6 +28,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     testimonial,
     settings,
     socialMedia,
+    idEntry,
     // shared objects
     customUrl,
     button,
