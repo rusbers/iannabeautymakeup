@@ -6,6 +6,7 @@ import { HeroBlock } from "./hero"
 import { FeaturedServicesWithIconBlock } from "./featured-services-with-icon"
 import { AboutMeBlock } from "./about-me"
 import { GridGalleryBlock } from "./grid-gallery"
+import { PriceListBlock } from "./price-list"
 
 type Block = NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number]
 
@@ -16,6 +17,7 @@ const componentMap: {
   featuredServicesWithIcon: FeaturedServicesWithIconBlock,
   aboutMe: AboutMeBlock,
   imageGridGallery: GridGalleryBlock,
+  priceList: PriceListBlock,
   // Not Used
   "hero-2": Hero2,
   "carousel-2": Carousel2,

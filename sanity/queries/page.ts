@@ -5,6 +5,7 @@ import { heroBlockQuery } from "./hero"
 import { featuredServicesBlockQuery } from "./featured-services-with-icon"
 import { aboutMeBlockQuery } from "./about-me"
 import { imageGridGalleryBlockQuery } from "./image-grid-gallery"
+import { priceListBlockQuery } from "./price-list"
 
 export const PAGE_QUERY = groq`
   *[_type == "page" && slug.current == $slug && language == $language][0]{
@@ -13,6 +14,7 @@ export const PAGE_QUERY = groq`
       ${featuredServicesBlockQuery},
       ${aboutMeBlockQuery},
       ${imageGridGalleryBlockQuery},
+      ${priceListBlockQuery},
       // not used
       ${hero2Query},
       ${carousel2Query},
