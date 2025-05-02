@@ -28,7 +28,6 @@ export function SanityButton({
   }
 
   const link = anchor ? href + "#" + anchor : href
-  console.log(link)
 
   return (
     <Button

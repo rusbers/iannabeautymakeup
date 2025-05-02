@@ -5,20 +5,28 @@ import { defineField } from "sanity"
 export const richTextField = defineField({
   name: "richText",
   type: "richText",
+  title: "Text",
 })
 
 export const richSubtitleField = defineField({
   name: "richSubtitle",
   type: "richSubtitle",
+  title: "Subtitle",
 })
 
 export const richTitleField = defineField({
   name: "richTitle",
-  title: "Text",
   type: "richTitle",
+  title: "Title",
 })
 
 // END RICH TEXT FIELDS
+
+export const titleField = defineField({
+  name: "title",
+  title: "Title",
+  type: "string",
+})
 
 export const buttonsField = defineField({
   name: "buttons",

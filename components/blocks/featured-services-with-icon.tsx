@@ -8,6 +8,7 @@ type FeaturedServicesWithIconBlockProps = Extract<
   { _type: "featuredServicesWithIcon" }
 >
 
+// TODO anchors
 export function FeaturedServicesWithIconBlock({
   title,
   items,

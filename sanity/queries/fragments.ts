@@ -17,24 +17,6 @@ export const imagesFragment = /* groq */ `
     },
   }
 `
-export const sanityImgFragment = /* groq */ `
-  image{
-    ...,
-    "preview": asset->metadata.lqip,
-    "dominantColor": asset->metadata.palette.dominant.background,
-    "id": asset._ref,
-    hotspot { 
-      x, 
-      y 
-    },
-    crop {
-      bottom,
-      left,
-      right,
-      top,
-    }
-  }
-`
 
 export const buttonsFragment = /* groq */ `
   buttons[]{

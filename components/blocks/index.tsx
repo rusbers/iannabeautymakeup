@@ -4,6 +4,7 @@ import Hero2 from "@/components/blocks/hero/hero-2"
 import Carousel2 from "@/components/blocks/carousel/carousel-2"
 import { HeroBlock } from "./hero"
 import { FeaturedServicesWithIconBlock } from "./featured-services-with-icon"
+import { AboutMeBlock } from "./about-me"
 
 type Block = NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number]
 
@@ -12,6 +13,7 @@ const componentMap: {
 } = {
   hero: HeroBlock,
   featuredServicesWithIcon: FeaturedServicesWithIconBlock,
+  aboutMe: AboutMeBlock,
   // Not Used
   "hero-2": Hero2,
   "carousel-2": Carousel2,

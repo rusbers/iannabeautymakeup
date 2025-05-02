@@ -19,6 +19,7 @@ import { hero } from "./schemas/blocks/hero/hero"
 import { button } from "./schemas/blocks/shared/button"
 import { customUrl } from "./schemas/blocks/shared/custom-url"
 import { featuredServicesWithIcon } from "./schemas/blocks/featured-services-with-icon"
+import { aboutMe } from "./schemas/blocks/about-me"
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -40,8 +41,10 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     richSubtitle,
     // blocks
     hero,
+    featuredServicesWithIcon,
+    aboutMe,
+    // not used
     hero2,
     carousel2,
-    featuredServicesWithIcon,
   ],
 }

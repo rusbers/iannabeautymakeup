@@ -56,9 +56,11 @@ export default defineType({
       group: "content",
       of: [
         { type: "hero" },
+        { type: "featuredServicesWithIcon" },
+        { type: "aboutMe" },
+        // not used
         { type: "hero-2" },
         { type: "carousel-2" },
-        { type: "featuredServicesWithIcon" },
       ],
     }),
     defineField({

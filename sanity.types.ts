@@ -68,21 +68,6 @@ export type Geopoint = {
   alt?: number;
 };
 
-export type FeaturedServicesWithIcon = {
-  _type: "featuredServicesWithIcon";
-  title?: string;
-  items?: Array<{
-    svgIcon?: string;
-    title?: string;
-    description?: string;
-    buttons?: Array<{
-      _key: string;
-    } & Button>;
-    _type: "serviceLinkItem";
-    _key: string;
-  }>;
-};
-
 export type Carousel2 = {
   _type: "carousel-2";
   padding?: SectionPadding;
@@ -140,6 +125,70 @@ export type Hero2 = {
   links?: Array<{
     _key: string;
   } & Link>;
+};
+
+export type AboutMe = {
+  _type: "aboutMe";
+  title?: string;
+  richSubtitle?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal";
+    listItem?: never;
+    markDefs?: null;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+  richText?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal";
+    listItem?: "bullet";
+    markDefs?: null;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+  buttons?: Array<{
+    _key: string;
+  } & Button>;
+  image?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    imageDescription?: string;
+    _type: "image";
+  };
+};
+
+export type FeaturedServicesWithIcon = {
+  _type: "featuredServicesWithIcon";
+  title?: string;
+  items?: Array<{
+    svgIcon?: string;
+    title?: string;
+    description?: string;
+    buttons?: Array<{
+      _key: string;
+    } & Button>;
+    _type: "serviceLinkItem";
+    _key: string;
+  }>;
 };
 
 export type Hero = {
@@ -571,11 +620,13 @@ export type Page = {
     _key: string;
   } & Hero | {
     _key: string;
+  } & FeaturedServicesWithIcon | {
+    _key: string;
+  } & AboutMe | {
+    _key: string;
   } & Hero2 | {
     _key: string;
-  } & Carousel2 | {
-    _key: string;
-  } & FeaturedServicesWithIcon>;
+  } & Carousel2>;
   meta_title?: string;
   meta_description?: string;
   noindex?: boolean;
@@ -661,7 +712,7 @@ export type InternationalizedArrayReference = Array<{
   _key: string;
 } & InternationalizedArrayReferenceValue>;
 
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | FeaturedServicesWithIcon | Carousel2 | Hero2 | Hero | RichSubtitle | RichText | RichHeroTitle | Button | CustomUrl | SectionPadding | ButtonVariant | ColorVariant | Link | BlockContent | SocialMedia | Settings | InlineSvg | IconPicker | Code | SanityAssistInstructionTask | SanityAssistTaskStatus | SanityAssistSchemaTypeAnnotations | SanityAssistOutputType | SanityAssistOutputField | SanityAssistInstructionContext | AssistInstructionContext | SanityAssistInstructionUserInput | SanityAssistInstructionPrompt | SanityAssistInstructionFieldRef | SanityAssistInstruction | SanityAssistSchemaTypeField | InternationalizedArrayStringValue | InternationalizedArrayString | TranslationMetadata | InternationalizedArrayReferenceValue | Testimonial | Page | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Slug | InternationalizedArrayReference;
+export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Carousel2 | Hero2 | AboutMe | FeaturedServicesWithIcon | Hero | RichSubtitle | RichText | RichHeroTitle | Button | CustomUrl | SectionPadding | ButtonVariant | ColorVariant | Link | BlockContent | SocialMedia | Settings | InlineSvg | IconPicker | Code | SanityAssistInstructionTask | SanityAssistTaskStatus | SanityAssistSchemaTypeAnnotations | SanityAssistOutputType | SanityAssistOutputField | SanityAssistInstructionContext | AssistInstructionContext | SanityAssistInstructionUserInput | SanityAssistInstructionPrompt | SanityAssistInstructionFieldRef | SanityAssistInstruction | SanityAssistSchemaTypeField | InternationalizedArrayStringValue | InternationalizedArrayString | TranslationMetadata | InternationalizedArrayReferenceValue | Testimonial | Page | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Slug | InternationalizedArrayReference;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./app/sitemap.ts
 // Variable: pagesQuery
@@ -687,9 +738,66 @@ export type QueryFooterDataResult = {
 
 // Source: ./sanity/queries/page.ts
 // Variable: PAGE_QUERY
-// Query: *[_type == "page" && slug.current == $slug && language == $language][0]{    blocks[]{        _type == "hero" => {    _type,    _key,    richHeroTitle,    richText,    icon,    services,      buttons[]{    text,    variant,    _key,    _type,    "openInNewTab": url.openInNewTab,    "anchor": url.anchor->idItem,    "href": select(      url.type == "internal" => url.internal->slug.current,      url.type == "external" => url.external,      url.href    ),  },      image{    ...,    "alt": imageDescription,    "blurData": asset->metadata.lqip,    "dominantColor": asset->metadata.palette.dominant.background,  },  },        _type == "featuredServicesWithIcon" => {    _type,    _key,    title,    items[]{      _type,      _key,      title,      svgIcon,      description,        buttons[]{    text,    variant,    _key,    _type,    "openInNewTab": url.openInNewTab,    "anchor": url.anchor->idItem,    "href": select(      url.type == "internal" => url.internal->slug.current,      url.type == "external" => url.external,      url.href    ),  },    }  },        _type == "hero-2" => {    _type,    _key,    tagLine,    title,    body[]{      ...,      _type == "image" => {        ...,        asset->{          _id,          url,          mimeType,          metadata {            lqip,            dimensions {              width,              height            }          }        }      }    },    links,  },        _type == "carousel-2" => {    _type,    _key,    padding,    colorVariant,    testimonial[]->{      _id,      name,      title,      image{        asset->{          _id,          url,          mimeType,          metadata {            lqip,            dimensions {              width,              height            }          }        },        alt      },      body[]{        ...,        _type == "image" => {          ...,          asset->{            _id,            url,            mimeType,            metadata {              lqip,              dimensions {                width,                height              }            }          }        }      },      rating,    },  },    },    meta_title,    meta_description,    noindex,    ogImage {      asset->{        _id,        url,        metadata {          dimensions {            width,            height          }        }      },    }  }
+// Query: *[_type == "page" && slug.current == $slug && language == $language][0]{    blocks[]{        _type == "hero" => {    _type,    _key,    richHeroTitle,    richText,    icon,    services,      buttons[]{    text,    variant,    _key,    _type,    "openInNewTab": url.openInNewTab,    "anchor": url.anchor->idItem,    "href": select(      url.type == "internal" => url.internal->slug.current,      url.type == "external" => url.external,      url.href    ),  },      image{    ...,    "alt": imageDescription,    "blurData": asset->metadata.lqip,    "dominantColor": asset->metadata.palette.dominant.background,  },  },        _type == "featuredServicesWithIcon" => {    _type,    _key,    title,    items[]{      _type,      _key,      title,      svgIcon,      description,        buttons[]{    text,    variant,    _key,    _type,    "openInNewTab": url.openInNewTab,    "anchor": url.anchor->idItem,    "href": select(      url.type == "internal" => url.internal->slug.current,      url.type == "external" => url.external,      url.href    ),  },    }  },        _type == "aboutMe" => {    _type,    _key,    title,    richSubtitle,    richText,      buttons[]{    text,    variant,    _key,    _type,    "openInNewTab": url.openInNewTab,    "anchor": url.anchor->idItem,    "href": select(      url.type == "internal" => url.internal->slug.current,      url.type == "external" => url.external,      url.href    ),  },      image{    ...,    "alt": imageDescription,    "blurData": asset->metadata.lqip,    "dominantColor": asset->metadata.palette.dominant.background,  },  },      // not used        _type == "hero-2" => {    _type,    _key,    tagLine,    title,    body[]{      ...,      _type == "image" => {        ...,        asset->{          _id,          url,          mimeType,          metadata {            lqip,            dimensions {              width,              height            }          }        }      }    },    links,  },        _type == "carousel-2" => {    _type,    _key,    padding,    colorVariant,    testimonial[]->{      _id,      name,      title,      image{        asset->{          _id,          url,          mimeType,          metadata {            lqip,            dimensions {              width,              height            }          }        },        alt      },      body[]{        ...,        _type == "image" => {          ...,          asset->{            _id,            url,            mimeType,            metadata {              lqip,              dimensions {                width,                height              }            }          }        }      },      rating,    },  },    },    meta_title,    meta_description,    noindex,    ogImage {      asset->{        _id,        url,        metadata {          dimensions {            width,            height          }        }      },    }  }
 export type PAGE_QUERYResult = {
   blocks: Array<{
+    _type: "aboutMe";
+    _key: string;
+    title: string | null;
+    richSubtitle: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: null;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    richText: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: "bullet";
+      markDefs?: null;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    buttons: Array<{
+      text: string | null;
+      variant: "default" | "link" | "secondary" | null;
+      _key: string;
+      _type: "button";
+      openInNewTab: boolean | null;
+      anchor: null;
+      href: string | null;
+    }> | null;
+    image: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      imageDescription?: string;
+      _type: "image";
+      alt: string | null;
+      blurData: string | null;
+      dominantColor: string | null;
+    } | null;
+  } | {
     _type: "carousel-2";
     _key: string;
     padding: SectionPadding | null;
@@ -926,7 +1034,7 @@ declare module "@sanity/client" {
   interface SanityQueries {
     "\n    *[_type == 'page'] | order(slug.current) {\n      slug,\n      _updatedAt\n    }\n  ": PagesQueryResult;
     "\n  *[_type == \"settings\" && _id == \"settings\"][0]{\n    \"tagline\": tagline[_key == $language][0].value,\n    socialMediaLinks[]->{\n      _id,\n      name,\n      url,\n      \"icon\": icon.svg,\n      \"label\": label[_key == $language][0].value,\n    }\n  }\n": QueryFooterDataResult;
-    "\n  *[_type == \"page\" && slug.current == $slug && language == $language][0]{\n    blocks[]{\n      \n  _type == \"hero\" => {\n    _type,\n    _key,\n    richHeroTitle,\n    richText,\n    icon,\n    services,\n    \n  buttons[]{\n    text,\n    variant,\n    _key,\n    _type,\n    \"openInNewTab\": url.openInNewTab,\n    \"anchor\": url.anchor->idItem,\n    \"href\": select(\n      url.type == \"internal\" => url.internal->slug.current,\n      url.type == \"external\" => url.external,\n      url.href\n    ),\n  }\n,\n    \n  image{\n    ...,\n    \"alt\": imageDescription,\n    \"blurData\": asset->metadata.lqip,\n    \"dominantColor\": asset->metadata.palette.dominant.background,\n  }\n,\n  }\n,\n      \n  _type == \"featuredServicesWithIcon\" => {\n    _type,\n    _key,\n    title,\n    items[]{\n      _type,\n      _key,\n      title,\n      svgIcon,\n      description,\n      \n  buttons[]{\n    text,\n    variant,\n    _key,\n    _type,\n    \"openInNewTab\": url.openInNewTab,\n    \"anchor\": url.anchor->idItem,\n    \"href\": select(\n      url.type == \"internal\" => url.internal->slug.current,\n      url.type == \"external\" => url.external,\n      url.href\n    ),\n  }\n,\n    }\n  }\n,\n      \n  _type == \"hero-2\" => {\n    _type,\n    _key,\n    tagLine,\n    title,\n    body[]{\n      ...,\n      _type == \"image\" => {\n        ...,\n        asset->{\n          _id,\n          url,\n          mimeType,\n          metadata {\n            lqip,\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    },\n    links,\n  }\n,\n      \n  _type == \"carousel-2\" => {\n    _type,\n    _key,\n    padding,\n    colorVariant,\n    testimonial[]->{\n      _id,\n      name,\n      title,\n      image{\n        asset->{\n          _id,\n          url,\n          mimeType,\n          metadata {\n            lqip,\n            dimensions {\n              width,\n              height\n            }\n          }\n        },\n        alt\n      },\n      body[]{\n        ...,\n        _type == \"image\" => {\n          ...,\n          asset->{\n            _id,\n            url,\n            mimeType,\n            metadata {\n              lqip,\n              dimensions {\n                width,\n                height\n              }\n            }\n          }\n        }\n      },\n      rating,\n    },\n  }\n,\n    },\n    meta_title,\n    meta_description,\n    noindex,\n    ogImage {\n      asset->{\n        _id,\n        url,\n        metadata {\n          dimensions {\n            width,\n            height\n          }\n        }\n      },\n    }\n  }\n": PAGE_QUERYResult;
+    "\n  *[_type == \"page\" && slug.current == $slug && language == $language][0]{\n    blocks[]{\n      \n  _type == \"hero\" => {\n    _type,\n    _key,\n    richHeroTitle,\n    richText,\n    icon,\n    services,\n    \n  buttons[]{\n    text,\n    variant,\n    _key,\n    _type,\n    \"openInNewTab\": url.openInNewTab,\n    \"anchor\": url.anchor->idItem,\n    \"href\": select(\n      url.type == \"internal\" => url.internal->slug.current,\n      url.type == \"external\" => url.external,\n      url.href\n    ),\n  }\n,\n    \n  image{\n    ...,\n    \"alt\": imageDescription,\n    \"blurData\": asset->metadata.lqip,\n    \"dominantColor\": asset->metadata.palette.dominant.background,\n  }\n,\n  }\n,\n      \n  _type == \"featuredServicesWithIcon\" => {\n    _type,\n    _key,\n    title,\n    items[]{\n      _type,\n      _key,\n      title,\n      svgIcon,\n      description,\n      \n  buttons[]{\n    text,\n    variant,\n    _key,\n    _type,\n    \"openInNewTab\": url.openInNewTab,\n    \"anchor\": url.anchor->idItem,\n    \"href\": select(\n      url.type == \"internal\" => url.internal->slug.current,\n      url.type == \"external\" => url.external,\n      url.href\n    ),\n  }\n,\n    }\n  }\n,\n      \n  _type == \"aboutMe\" => {\n    _type,\n    _key,\n    title,\n    richSubtitle,\n    richText,\n    \n  buttons[]{\n    text,\n    variant,\n    _key,\n    _type,\n    \"openInNewTab\": url.openInNewTab,\n    \"anchor\": url.anchor->idItem,\n    \"href\": select(\n      url.type == \"internal\" => url.internal->slug.current,\n      url.type == \"external\" => url.external,\n      url.href\n    ),\n  }\n,\n    \n  image{\n    ...,\n    \"alt\": imageDescription,\n    \"blurData\": asset->metadata.lqip,\n    \"dominantColor\": asset->metadata.palette.dominant.background,\n  }\n,\n  }\n,\n      // not used\n      \n  _type == \"hero-2\" => {\n    _type,\n    _key,\n    tagLine,\n    title,\n    body[]{\n      ...,\n      _type == \"image\" => {\n        ...,\n        asset->{\n          _id,\n          url,\n          mimeType,\n          metadata {\n            lqip,\n            dimensions {\n              width,\n              height\n            }\n          }\n        }\n      }\n    },\n    links,\n  }\n,\n      \n  _type == \"carousel-2\" => {\n    _type,\n    _key,\n    padding,\n    colorVariant,\n    testimonial[]->{\n      _id,\n      name,\n      title,\n      image{\n        asset->{\n          _id,\n          url,\n          mimeType,\n          metadata {\n            lqip,\n            dimensions {\n              width,\n              height\n            }\n          }\n        },\n        alt\n      },\n      body[]{\n        ...,\n        _type == \"image\" => {\n          ...,\n          asset->{\n            _id,\n            url,\n            mimeType,\n            metadata {\n              lqip,\n              dimensions {\n                width,\n                height\n              }\n            }\n          }\n        }\n      },\n      rating,\n    },\n  }\n,\n    },\n    meta_title,\n    meta_description,\n    noindex,\n    ogImage {\n      asset->{\n        _id,\n        url,\n        metadata {\n          dimensions {\n            width,\n            height\n          }\n        }\n      },\n    }\n  }\n": PAGE_QUERYResult;
     "*[_type == \"page\" && defined(slug) && language == $language]{slug}": PAGES_SLUGS_QUERYResult;
   }
 }
