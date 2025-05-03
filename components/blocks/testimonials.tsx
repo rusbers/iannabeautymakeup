@@ -30,10 +30,10 @@ export function TestimonialsBlock({
       </Title>
       <RichSubtitle richText={richSubtitle} className="mb-12 text-center" />
 
-      <Carousel>
+      <Carousel opts={{ slidesToScroll: 1 }}>
         <CarouselContent>
           {testimonials?.map((item, i) => (
-            <CarouselItem key={i} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
+            <CarouselItem key={i} className="pl-2 md:pl-4 lg:basis-1/3">
               <Card className="h-full">
                 <CardContent className="flex flex-col justify-between p-4 h-full">
                   <div className="p-4 bg-white/5 border border-gold-900 backdrop-blur-sm h-full flex flex-col">
@@ -48,8 +48,14 @@ export function TestimonialsBlock({
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious variant="secondary" className="-left-3 md:-left-8 xl:-left-12" />
-        <CarouselNext variant="secondary" className="-right-3 md:-right-8 xl:-right-12" />
+        <CarouselPrevious
+          variant="secondary"
+          className="-left-3 sm:-left-6 md:-left-8 xl:-left-12"
+        />
+        <CarouselNext
+          variant="secondary"
+          className="-right-3 sm:-right-6 md:-right-8 xl:-right-12"
+        />
       </Carousel>
       <SanityButtons className="justify-center" buttons={buttons} />
     </section>

@@ -62,7 +62,11 @@ export const AboutMeBlock = ({
 
           {/* TODO add button icon <ChevronRight className="w-5 h-5" /> */}
           {buttons && (
-            <SanityButtons size="lg" className="mt-9 mx-auto lg:mx-0" buttons={buttons} />
+            <SanityButtons
+              size="lg"
+              className="mt-9 justify-center lg:justify-start"
+              buttons={buttons}
+            />
           )}
         </div>
       </div>
