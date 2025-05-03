@@ -1,7 +1,7 @@
 import { sanityFetch } from "@/sanity/lib/live"
 import { queryFooterData } from "@/sanity/queries/footer"
 import { Copy } from "./copy"
-import { Locale } from "@/i18n-config"
+import type { Locale } from "@/i18n-config"
 import { Footer } from "./footer"
 import { getDictionary } from "@/get-dictionary"
 
@@ -19,5 +19,5 @@ export async function FooterServer({
 
   if (!footerData?.data) return <Copy dictionary={dictionary} as="footer" />
 
-  return <Footer data={footerData.data} dictionary={dictionary} />
+  return <Footer data={footerData.data} dictionary={dictionary} language={language} />
 }

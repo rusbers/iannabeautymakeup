@@ -9,16 +9,18 @@ import { Copy } from "./copy"
 import Logo from "../logo"
 import { SanityIcon } from "../sanity-icon"
 import Link from "next/link"
+import type { Locale } from "@/i18n-config"
 
 interface FooterProps {
   data: NonNullable<QueryFooterDataResult>
   dictionary: Awaited<ReturnType<typeof getDictionary>>
+  language: Locale
 }
 
-export const Footer = ({ data, dictionary }: FooterProps) => {
+export const Footer = ({ data, dictionary, language }: FooterProps) => {
   const pathname = usePathname()
-  const isHomepage = pathname === "/"
-  const isContactPage = pathname === "/contact"
+  const isHomepage = pathname === `/${language}`
+  const isContactPage = pathname === `/${language}/contact`
 
   return isContactPage ? (
     <Copy dictionary={dictionary} as="footer" className="container py-10" />
