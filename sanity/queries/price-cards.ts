@@ -6,6 +6,7 @@ export const priceCardsBlockQuery = /* groq */ `
     _type,
     _key,
     title,
+    touchUpTitle,
     prices[]->{
       _id,
       category,

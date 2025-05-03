@@ -8,7 +8,7 @@ type PriceCardsBlockProps = Extract<
   { _type: "priceCards" }
 >
 
-export const PriceCardsBlock = ({ title, prices, buttons }: PriceCardsBlockProps) => (
+export const PriceCardsBlock = ({ title, prices, buttons, touchUpTitle }: PriceCardsBlockProps) => (
   <section className="py-20">
     <h2 className="sr-only">{title}</h2>
     <div className="container">
@@ -34,7 +34,7 @@ export const PriceCardsBlock = ({ title, prices, buttons }: PriceCardsBlockProps
                   {touchUps && (
                     <>
                       <h4 className="text-base uppercase tracking-wider text-gray-400">
-                        Touch-up Options
+                        {touchUpTitle}
                       </h4>
                       <ul className="space-y-2">
                         {touchUps.map((touchUp) => (

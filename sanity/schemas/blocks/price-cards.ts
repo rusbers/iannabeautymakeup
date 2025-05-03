@@ -13,6 +13,12 @@ export const priceCards = defineType({
       description: "Will be visually hidden on website, but it is important for SEO",
     },
     defineField({
+      name: "touchUpTitle",
+      title: "Touch-Up Title",
+      type: "string",
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: "prices",
       title: "Prices",
       description: "Choose which pricing categories to display in this section of the website.",
