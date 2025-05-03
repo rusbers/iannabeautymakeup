@@ -1,6 +1,10 @@
 /** @type {import('next').NextConfig} */
 
 const nextConfig = {
+  experimental: {
+    reactCompiler: true,
+    inlineCss: true,
+  },
   async redirects() {
     return [
       {
@@ -11,6 +15,7 @@ const nextConfig = {
     ]
   },
   images: {
+    minimumCacheTTL: 31536000,
     remotePatterns: [
       {
         protocol: "https",
