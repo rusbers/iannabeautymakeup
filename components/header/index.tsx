@@ -16,10 +16,9 @@ export default function Header({
   const navItems = getNavItems(lang, dictionary)
 
   return (
-    // TODO get the actual hight h-[115px] lg:h-[120px]
     <header className="sticky top-0 inset-x-0 z-50 bg-background/95 backdrop-blur-lg py-6 border-b">
       <div className="container max-w-screen-2xl flex items-center justify-between gap-4">
-        <Link href="/" aria-label="Home Page">
+        <Link href={`/${lang}`} aria-label="Home Page">
           <Logo className="w-[250px] h-auto" />
         </Link>
 
