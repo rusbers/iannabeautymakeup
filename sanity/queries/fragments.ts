@@ -27,9 +27,11 @@ export const buttonsFragment = /* groq */ `
     "openInNewTab": url.openInNewTab,
     "anchor": url.anchor->idItem,
     "href": select(
+      url.type == "internal" && defined(url.anchor->idItem) =>
+        $language + "/" + url.internal->slug.current + "#" + url.anchor->idItem,
       url.type == "internal" => url.internal->slug.current,
       url.type == "external" => url.external,
-      url.href
-    ),
+      null
+    )
   }
 `

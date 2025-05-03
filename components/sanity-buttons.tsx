@@ -27,8 +27,6 @@ export function SanityButton({
     return <Button>Link Broken</Button>
   }
 
-  const link = anchor ? href + "#" + anchor : href
-
   return (
     <Button
       variant={variant}
@@ -38,7 +36,7 @@ export function SanityButton({
       className={cn("min-w-[11.25rem]", className)}
     >
       <Link
-        href={stegaClean(link) || "#"}
+        href={stegaClean(href) || "#"}
         target={openInNewTab ? "_blank" : "_self"}
         aria-label={`Navigate to ${stegaClean(text)}`}
         title={`Click to visit ${stegaClean(text)}`}
