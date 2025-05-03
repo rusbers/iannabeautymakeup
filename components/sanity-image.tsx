@@ -1,5 +1,7 @@
 import { getImageDimensions } from "@sanity/asset-utils"
+
 import Image, { type ImageProps as NextImageProps } from "next/image"
+
 import type { SanityImageProps } from "@/types"
 import { urlFor } from "@/sanity/lib/image"
 import { cn } from "@/lib/utils"
@@ -41,8 +43,8 @@ export function SanityImage({
 
   // Base image props
   const imageProps = {
-    alt: alt ?? asset.imageDescription ?? "Image",
-    "aria-label": alt ?? asset.imageDescription ?? "Image",
+    alt: alt ?? asset.alt ?? "Image",
+    "aria-label": alt ?? asset.alt ?? "Image",
     src: url,
     className: cn(className),
     sizes: "(max-width: 640px) 75vw, (max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw",

@@ -44,7 +44,8 @@ export const GridGalleryBlock = ({ title, link, images }: GridGalleryBlockProps)
           >
             <SanityImage
               asset={image.image}
-              fill
+              width={500}
+              height={500}
               className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
             />
           </ImagesGridLink>
