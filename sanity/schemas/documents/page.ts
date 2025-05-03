@@ -67,6 +67,21 @@ export const page = defineType({
         { type: "priceCards" },
         { type: "contact" },
       ],
+      options: {
+        insertMenu: {
+          views: [
+            {
+              name: "grid",
+              previewImageUrl: (schemaType) =>
+                `https://res.cloudinary.com/dscmfusfp/image/upload/v1746287479/${schemaType}.webp`,
+            },
+          ],
+          groups: [
+            { name: "Intro", of: ["hero", "interiorPageHero"] },
+            { name: "Price", of: ["priceList", "priceCards"] },
+          ],
+        },
+      },
     }),
     defineField({
       name: "meta_title",
