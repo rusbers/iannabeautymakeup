@@ -7,6 +7,7 @@ import { priceListBlockQuery } from "./price-list"
 import { testimonialsBlockQuery } from "./testimonials"
 import { interiorPageHeroBlockQuery } from "./interior-page-hero"
 import { serviceInformationBlock } from "./service-information"
+import { priceCardsBlockQuery } from "./price-cards"
 
 export const PAGE_QUERY = groq`
   *[_type == "page" && slug.current == $slug && language == $language][0]{
@@ -19,6 +20,7 @@ export const PAGE_QUERY = groq`
       ${testimonialsBlockQuery},
       ${interiorPageHeroBlockQuery},
       ${serviceInformationBlock},
+      ${priceCardsBlockQuery},
     },
     meta_title,
     meta_description,

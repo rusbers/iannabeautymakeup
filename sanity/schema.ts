@@ -21,6 +21,7 @@ import { testimonials } from "./schemas/blocks/testimonials"
 import { imageGridGallery } from "./schemas/blocks/image-grid-gallery"
 import { interiorPageHero } from "./schemas/blocks/interior-page-hero"
 import { serviceInformation } from "./schemas/blocks/service-information"
+import { priceCards } from "./schemas/blocks/price-cards"
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -46,5 +47,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     imageGridGallery,
     interiorPageHero,
     serviceInformation,
+    priceCards,
   ],
 }

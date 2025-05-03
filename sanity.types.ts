@@ -68,6 +68,21 @@ export type Geopoint = {
   alt?: number;
 };
 
+export type PriceCards = {
+  _type: "priceCards";
+  title?: string;
+  prices?: Array<{
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    _key: string;
+    [internalGroqTypeReferenceTo]?: "price";
+  }>;
+  buttons?: Array<{
+    _key: string;
+  } & Button>;
+};
+
 export type ServiceInformation = {
   _type: "serviceInformation";
   title?: string;
@@ -471,6 +486,12 @@ export type CustomUrl = {
     _weak?: boolean;
     [internalGroqTypeReferenceTo]?: "page";
   };
+  anchor?: {
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    [internalGroqTypeReferenceTo]?: "idEntry";
+  };
 };
 
 export type IdEntry = {
@@ -749,7 +770,9 @@ export type Page = {
     _key: string;
   } & InteriorPageHero | {
     _key: string;
-  } & ServiceInformation>;
+  } & ServiceInformation | {
+    _key: string;
+  } & PriceCards>;
   meta_title?: string;
   meta_description?: string;
   noindex?: boolean;
@@ -842,7 +865,7 @@ export type InternationalizedArrayReference = Array<{
   _key: string;
 } & InternationalizedArrayReferenceValue>;
 
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | ServiceInformation | InteriorPageHero | ImageGridGallery | Testimonials | PriceList | AboutMe | FeaturedServicesWithIcon | Hero | RichSubtitle | RichText | RichHeroTitle | Button | CustomUrl | IdEntry | SocialMedia | Settings | Price | InlineSvg | Code | SanityAssistInstructionTask | SanityAssistTaskStatus | SanityAssistSchemaTypeAnnotations | SanityAssistOutputType | SanityAssistOutputField | SanityAssistInstructionContext | AssistInstructionContext | SanityAssistInstructionUserInput | SanityAssistInstructionPrompt | SanityAssistInstructionFieldRef | SanityAssistInstruction | SanityAssistSchemaTypeField | InternationalizedArrayStringValue | InternationalizedArrayString | TranslationMetadata | InternationalizedArrayReferenceValue | Testimonial | Page | IconPicker | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Slug | InternationalizedArrayReference;
+export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | PriceCards | ServiceInformation | InteriorPageHero | ImageGridGallery | Testimonials | PriceList | AboutMe | FeaturedServicesWithIcon | Hero | RichSubtitle | RichText | RichHeroTitle | Button | CustomUrl | IdEntry | SocialMedia | Settings | Price | InlineSvg | Code | SanityAssistInstructionTask | SanityAssistTaskStatus | SanityAssistSchemaTypeAnnotations | SanityAssistOutputType | SanityAssistOutputField | SanityAssistInstructionContext | AssistInstructionContext | SanityAssistInstructionUserInput | SanityAssistInstructionPrompt | SanityAssistInstructionFieldRef | SanityAssistInstruction | SanityAssistSchemaTypeField | InternationalizedArrayStringValue | InternationalizedArrayString | TranslationMetadata | InternationalizedArrayReferenceValue | Testimonial | Page | IconPicker | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Slug | InternationalizedArrayReference;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./app/sitemap.ts
 // Variable: pagesQuery
@@ -868,7 +891,7 @@ export type QueryFooterDataResult = {
 
 // Source: ./sanity/queries/page.ts
 // Variable: PAGE_QUERY
-// Query: *[_type == "page" && slug.current == $slug && language == $language][0]{    blocks[]{        _type == "hero" => {    _type,    _key,    richHeroTitle,    richText,    icon,    services,      buttons[]{    text,    variant,    _key,    _type,    "openInNewTab": url.openInNewTab,    "anchor": url.anchor->idItem,    "href": select(      url.type == "internal" => url.internal->slug.current,      url.type == "external" => url.external,      url.href    ),  },      image{    ...,    "alt": imageDescription,    "blurData": asset->metadata.lqip,    "dominantColor": asset->metadata.palette.dominant.background,  },  },        _type == "featuredServicesWithIcon" => {    _type,    _key,    title,    items[]{      _type,      _key,      title,      svgIcon,      description,        buttons[]{    text,    variant,    _key,    _type,    "openInNewTab": url.openInNewTab,    "anchor": url.anchor->idItem,    "href": select(      url.type == "internal" => url.internal->slug.current,      url.type == "external" => url.external,      url.href    ),  },    }  },        _type == "aboutMe" => {    _type,    _key,    title,    richSubtitle,    richText,      buttons[]{    text,    variant,    _key,    _type,    "openInNewTab": url.openInNewTab,    "anchor": url.anchor->idItem,    "href": select(      url.type == "internal" => url.internal->slug.current,      url.type == "external" => url.external,      url.href    ),  },      image{    ...,    "alt": imageDescription,    "blurData": asset->metadata.lqip,    "dominantColor": asset->metadata.palette.dominant.background,  },  },        _type == "imageGridGallery" => {    _type,    _key,    title,      images[]{    "image": {      ...,      "alt": imageDescription,      "blurData": asset->metadata.lqip,      "dominantColor": asset->metadata.palette.dominant.background,    },  },    link,  },        _type == "priceList" => {    _type,    _key,    title,    richSubtitle,    prices[]->{      _id,      category,      services[]{        name,        price,      }    },      buttons[]{    text,    variant,    _key,    _type,    "openInNewTab": url.openInNewTab,    "anchor": url.anchor->idItem,    "href": select(      url.type == "internal" => url.internal->slug.current,      url.type == "external" => url.external,      url.href    ),  },      image{    ...,    "alt": imageDescription,    "blurData": asset->metadata.lqip,    "dominantColor": asset->metadata.palette.dominant.background,  },  },        _type == "testimonials" => {    _type,    _key,    title,    richSubtitle,    testimonials[]->{      username,      richText,    },      buttons[]{    text,    variant,    _key,    _type,    "openInNewTab": url.openInNewTab,    "anchor": url.anchor->idItem,    "href": select(      url.type == "internal" => url.internal->slug.current,      url.type == "external" => url.external,      url.href    ),  },  },        _type == "interiorPageHero" => {    _type,    _key,    title,    richSubtitle,    richText,      image{    ...,    "alt": imageDescription,    "blurData": asset->metadata.lqip,    "dominantColor": asset->metadata.palette.dominant.background,  },  },        _type == "serviceInformation" => {    _type,    _key,    title,    "id": idReference->idItem,    introduction,    service[]{      serviceName,      description,    },    treatmentProcess[]{      _key,      icon,      title,      description,    },    isHealingProcess,    renderImageFirstOnDesktop,    gallery[]{        image{    ...,    "alt": imageDescription,    "blurData": asset->metadata.lqip,    "dominantColor": asset->metadata.palette.dominant.background,  },      caption,    },      buttons[]{    text,    variant,    _key,    _type,    "openInNewTab": url.openInNewTab,    "anchor": url.anchor->idItem,    "href": select(      url.type == "internal" => url.internal->slug.current,      url.type == "external" => url.external,      url.href    ),  },    useLighterBg,  },    },    meta_title,    meta_description,    noindex,    ogImage {      asset->{        _id,        url,        metadata {          dimensions {            width,            height          }        }      },    }  }
+// Query: *[_type == "page" && slug.current == $slug && language == $language][0]{    blocks[]{        _type == "hero" => {    _type,    _key,    richHeroTitle,    richText,    icon,    services,      buttons[]{    text,    variant,    _key,    _type,    "openInNewTab": url.openInNewTab,    "anchor": url.anchor->idItem,    "href": select(      url.type == "internal" => url.internal->slug.current,      url.type == "external" => url.external,      url.href    ),  },      image{    ...,    "alt": imageDescription,    "blurData": asset->metadata.lqip,    "dominantColor": asset->metadata.palette.dominant.background,  },  },        _type == "featuredServicesWithIcon" => {    _type,    _key,    title,    items[]{      _type,      _key,      title,      svgIcon,      description,        buttons[]{    text,    variant,    _key,    _type,    "openInNewTab": url.openInNewTab,    "anchor": url.anchor->idItem,    "href": select(      url.type == "internal" => url.internal->slug.current,      url.type == "external" => url.external,      url.href    ),  },    }  },        _type == "aboutMe" => {    _type,    _key,    title,    richSubtitle,    richText,      buttons[]{    text,    variant,    _key,    _type,    "openInNewTab": url.openInNewTab,    "anchor": url.anchor->idItem,    "href": select(      url.type == "internal" => url.internal->slug.current,      url.type == "external" => url.external,      url.href    ),  },      image{    ...,    "alt": imageDescription,    "blurData": asset->metadata.lqip,    "dominantColor": asset->metadata.palette.dominant.background,  },  },        _type == "imageGridGallery" => {    _type,    _key,    title,      images[]{    "image": {      ...,      "alt": imageDescription,      "blurData": asset->metadata.lqip,      "dominantColor": asset->metadata.palette.dominant.background,    },  },    link,  },        _type == "priceList" => {    _type,    _key,    title,    richSubtitle,    prices[]->{      _id,      category,      services[]{        name,        price,      }    },      buttons[]{    text,    variant,    _key,    _type,    "openInNewTab": url.openInNewTab,    "anchor": url.anchor->idItem,    "href": select(      url.type == "internal" => url.internal->slug.current,      url.type == "external" => url.external,      url.href    ),  },      image{    ...,    "alt": imageDescription,    "blurData": asset->metadata.lqip,    "dominantColor": asset->metadata.palette.dominant.background,  },  },        _type == "testimonials" => {    _type,    _key,    title,    richSubtitle,    testimonials[]->{      username,      richText,    },      buttons[]{    text,    variant,    _key,    _type,    "openInNewTab": url.openInNewTab,    "anchor": url.anchor->idItem,    "href": select(      url.type == "internal" => url.internal->slug.current,      url.type == "external" => url.external,      url.href    ),  },  },        _type == "interiorPageHero" => {    _type,    _key,    title,    richSubtitle,    richText,      image{    ...,    "alt": imageDescription,    "blurData": asset->metadata.lqip,    "dominantColor": asset->metadata.palette.dominant.background,  },  },        _type == "serviceInformation" => {    _type,    _key,    title,    "id": idReference->idItem,    introduction,    service[]{      serviceName,      description,    },    treatmentProcess[]{      _key,      icon,      title,      description,    },    isHealingProcess,    renderImageFirstOnDesktop,    gallery[]{        image{    ...,    "alt": imageDescription,    "blurData": asset->metadata.lqip,    "dominantColor": asset->metadata.palette.dominant.background,  },      caption,    },      buttons[]{    text,    variant,    _key,    _type,    "openInNewTab": url.openInNewTab,    "anchor": url.anchor->idItem,    "href": select(      url.type == "internal" => url.internal->slug.current,      url.type == "external" => url.external,      url.href    ),  },    useLighterBg,  },        _type == "priceCards" => {    _type,    _key,    title,    prices[]->{      _id,      category,      services[]{        name,        price,        touchUps[]{          timeframe,          price        }      }    },      buttons[]{    text,    variant,    _key,    _type,    "openInNewTab": url.openInNewTab,    "anchor": url.anchor->idItem,    "href": select(      url.type == "internal" => url.internal->slug.current,      url.type == "external" => url.external,      url.href    ),  },  },    },    meta_title,    meta_description,    noindex,    ogImage {      asset->{        _id,        url,        metadata {          dimensions {            width,            height          }        }      },    }  }
 export type PAGE_QUERYResult = {
   blocks: Array<{
     _type: "aboutMe";
@@ -908,7 +931,7 @@ export type PAGE_QUERYResult = {
       _key: string;
       _type: "button";
       openInNewTab: boolean | null;
-      anchor: null;
+      anchor: string | null;
       href: string | null;
     }> | null;
     image: {
@@ -943,7 +966,7 @@ export type PAGE_QUERYResult = {
         _key: string;
         _type: "button";
         openInNewTab: boolean | null;
-        anchor: null;
+        anchor: string | null;
         href: string | null;
       }> | null;
     }> | null;
@@ -986,7 +1009,7 @@ export type PAGE_QUERYResult = {
       _key: string;
       _type: "button";
       openInNewTab: boolean | null;
-      anchor: null;
+      anchor: string | null;
       href: string | null;
     }> | null;
     image: {
@@ -1078,6 +1101,31 @@ export type PAGE_QUERYResult = {
       dominantColor: string | null;
     } | null;
   } | {
+    _type: "priceCards";
+    _key: string;
+    title: string | null;
+    prices: Array<{
+      _id: string;
+      category: string | null;
+      services: Array<{
+        name: string | null;
+        price: string | null;
+        touchUps: Array<{
+          timeframe: string | null;
+          price: string | null;
+        }> | null;
+      }> | null;
+    }> | null;
+    buttons: Array<{
+      text: string | null;
+      variant: "default" | "link" | "secondary" | null;
+      _key: string;
+      _type: "button";
+      openInNewTab: boolean | null;
+      anchor: string | null;
+      href: string | null;
+    }> | null;
+  } | {
     _type: "priceList";
     _key: string;
     title: string | null;
@@ -1109,7 +1157,7 @@ export type PAGE_QUERYResult = {
       _key: string;
       _type: "button";
       openInNewTab: boolean | null;
-      anchor: null;
+      anchor: string | null;
       href: string | null;
     }> | null;
     image: {
@@ -1210,7 +1258,7 @@ export type PAGE_QUERYResult = {
       _key: string;
       _type: "button";
       openInNewTab: boolean | null;
-      anchor: null;
+      anchor: string | null;
       href: string | null;
     }> | null;
     useLighterBg: boolean | null;
@@ -1242,7 +1290,7 @@ export type PAGE_QUERYResult = {
       _key: string;
       _type: "button";
       openInNewTab: boolean | null;
-      anchor: null;
+      anchor: string | null;
       href: string | null;
     }> | null;
   }> | null;
@@ -1274,7 +1322,7 @@ declare module "@sanity/client" {
   interface SanityQueries {
     "\n    *[_type == 'page'] | order(slug.current) {\n      slug,\n      _updatedAt\n    }\n  ": PagesQueryResult;
     "\n  *[_type == \"settings\" && _id == \"settings\"][0]{\n    \"tagline\": tagline[_key == $language][0].value,\n    socialMediaLinks[]->{\n      _id,\n      name,\n      url,\n      \"icon\": icon.svg,\n      \"label\": label[_key == $language][0].value,\n    }\n  }\n": QueryFooterDataResult;
-    "\n  *[_type == \"page\" && slug.current == $slug && language == $language][0]{\n    blocks[]{\n      \n  _type == \"hero\" => {\n    _type,\n    _key,\n    richHeroTitle,\n    richText,\n    icon,\n    services,\n    \n  buttons[]{\n    text,\n    variant,\n    _key,\n    _type,\n    \"openInNewTab\": url.openInNewTab,\n    \"anchor\": url.anchor->idItem,\n    \"href\": select(\n      url.type == \"internal\" => url.internal->slug.current,\n      url.type == \"external\" => url.external,\n      url.href\n    ),\n  }\n,\n    \n  image{\n    ...,\n    \"alt\": imageDescription,\n    \"blurData\": asset->metadata.lqip,\n    \"dominantColor\": asset->metadata.palette.dominant.background,\n  }\n,\n  }\n,\n      \n  _type == \"featuredServicesWithIcon\" => {\n    _type,\n    _key,\n    title,\n    items[]{\n      _type,\n      _key,\n      title,\n      svgIcon,\n      description,\n      \n  buttons[]{\n    text,\n    variant,\n    _key,\n    _type,\n    \"openInNewTab\": url.openInNewTab,\n    \"anchor\": url.anchor->idItem,\n    \"href\": select(\n      url.type == \"internal\" => url.internal->slug.current,\n      url.type == \"external\" => url.external,\n      url.href\n    ),\n  }\n,\n    }\n  }\n,\n      \n  _type == \"aboutMe\" => {\n    _type,\n    _key,\n    title,\n    richSubtitle,\n    richText,\n    \n  buttons[]{\n    text,\n    variant,\n    _key,\n    _type,\n    \"openInNewTab\": url.openInNewTab,\n    \"anchor\": url.anchor->idItem,\n    \"href\": select(\n      url.type == \"internal\" => url.internal->slug.current,\n      url.type == \"external\" => url.external,\n      url.href\n    ),\n  }\n,\n    \n  image{\n    ...,\n    \"alt\": imageDescription,\n    \"blurData\": asset->metadata.lqip,\n    \"dominantColor\": asset->metadata.palette.dominant.background,\n  }\n,\n  }\n,\n      \n  _type == \"imageGridGallery\" => {\n    _type,\n    _key,\n    title,\n    \n  images[]{\n    \"image\": {\n      ...,\n      \"alt\": imageDescription,\n      \"blurData\": asset->metadata.lqip,\n      \"dominantColor\": asset->metadata.palette.dominant.background,\n    },\n  }\n,\n    link,\n  }\n,\n      \n  _type == \"priceList\" => {\n    _type,\n    _key,\n    title,\n    richSubtitle,\n    prices[]->{\n      _id,\n      category,\n      services[]{\n        name,\n        price,\n      }\n    },\n    \n  buttons[]{\n    text,\n    variant,\n    _key,\n    _type,\n    \"openInNewTab\": url.openInNewTab,\n    \"anchor\": url.anchor->idItem,\n    \"href\": select(\n      url.type == \"internal\" => url.internal->slug.current,\n      url.type == \"external\" => url.external,\n      url.href\n    ),\n  }\n,\n    \n  image{\n    ...,\n    \"alt\": imageDescription,\n    \"blurData\": asset->metadata.lqip,\n    \"dominantColor\": asset->metadata.palette.dominant.background,\n  }\n,\n  }\n,\n      \n  _type == \"testimonials\" => {\n    _type,\n    _key,\n    title,\n    richSubtitle,\n    testimonials[]->{\n      username,\n      richText,\n    },\n    \n  buttons[]{\n    text,\n    variant,\n    _key,\n    _type,\n    \"openInNewTab\": url.openInNewTab,\n    \"anchor\": url.anchor->idItem,\n    \"href\": select(\n      url.type == \"internal\" => url.internal->slug.current,\n      url.type == \"external\" => url.external,\n      url.href\n    ),\n  }\n,\n  }\n,\n      \n  _type == \"interiorPageHero\" => {\n    _type,\n    _key,\n    title,\n    richSubtitle,\n    richText,\n    \n  image{\n    ...,\n    \"alt\": imageDescription,\n    \"blurData\": asset->metadata.lqip,\n    \"dominantColor\": asset->metadata.palette.dominant.background,\n  }\n,\n  }\n,\n      \n  _type == \"serviceInformation\" => {\n    _type,\n    _key,\n    title,\n    \"id\": idReference->idItem,\n    introduction,\n    service[]{\n      serviceName,\n      description,\n    },\n    treatmentProcess[]{\n      _key,\n      icon,\n      title,\n      description,\n    },\n    isHealingProcess,\n    renderImageFirstOnDesktop,\n    gallery[]{\n      \n  image{\n    ...,\n    \"alt\": imageDescription,\n    \"blurData\": asset->metadata.lqip,\n    \"dominantColor\": asset->metadata.palette.dominant.background,\n  }\n,\n      caption,\n    },\n    \n  buttons[]{\n    text,\n    variant,\n    _key,\n    _type,\n    \"openInNewTab\": url.openInNewTab,\n    \"anchor\": url.anchor->idItem,\n    \"href\": select(\n      url.type == \"internal\" => url.internal->slug.current,\n      url.type == \"external\" => url.external,\n      url.href\n    ),\n  }\n,\n    useLighterBg,\n  }\n,\n    },\n    meta_title,\n    meta_description,\n    noindex,\n    ogImage {\n      asset->{\n        _id,\n        url,\n        metadata {\n          dimensions {\n            width,\n            height\n          }\n        }\n      },\n    }\n  }\n": PAGE_QUERYResult;
+    "\n  *[_type == \"page\" && slug.current == $slug && language == $language][0]{\n    blocks[]{\n      \n  _type == \"hero\" => {\n    _type,\n    _key,\n    richHeroTitle,\n    richText,\n    icon,\n    services,\n    \n  buttons[]{\n    text,\n    variant,\n    _key,\n    _type,\n    \"openInNewTab\": url.openInNewTab,\n    \"anchor\": url.anchor->idItem,\n    \"href\": select(\n      url.type == \"internal\" => url.internal->slug.current,\n      url.type == \"external\" => url.external,\n      url.href\n    ),\n  }\n,\n    \n  image{\n    ...,\n    \"alt\": imageDescription,\n    \"blurData\": asset->metadata.lqip,\n    \"dominantColor\": asset->metadata.palette.dominant.background,\n  }\n,\n  }\n,\n      \n  _type == \"featuredServicesWithIcon\" => {\n    _type,\n    _key,\n    title,\n    items[]{\n      _type,\n      _key,\n      title,\n      svgIcon,\n      description,\n      \n  buttons[]{\n    text,\n    variant,\n    _key,\n    _type,\n    \"openInNewTab\": url.openInNewTab,\n    \"anchor\": url.anchor->idItem,\n    \"href\": select(\n      url.type == \"internal\" => url.internal->slug.current,\n      url.type == \"external\" => url.external,\n      url.href\n    ),\n  }\n,\n    }\n  }\n,\n      \n  _type == \"aboutMe\" => {\n    _type,\n    _key,\n    title,\n    richSubtitle,\n    richText,\n    \n  buttons[]{\n    text,\n    variant,\n    _key,\n    _type,\n    \"openInNewTab\": url.openInNewTab,\n    \"anchor\": url.anchor->idItem,\n    \"href\": select(\n      url.type == \"internal\" => url.internal->slug.current,\n      url.type == \"external\" => url.external,\n      url.href\n    ),\n  }\n,\n    \n  image{\n    ...,\n    \"alt\": imageDescription,\n    \"blurData\": asset->metadata.lqip,\n    \"dominantColor\": asset->metadata.palette.dominant.background,\n  }\n,\n  }\n,\n      \n  _type == \"imageGridGallery\" => {\n    _type,\n    _key,\n    title,\n    \n  images[]{\n    \"image\": {\n      ...,\n      \"alt\": imageDescription,\n      \"blurData\": asset->metadata.lqip,\n      \"dominantColor\": asset->metadata.palette.dominant.background,\n    },\n  }\n,\n    link,\n  }\n,\n      \n  _type == \"priceList\" => {\n    _type,\n    _key,\n    title,\n    richSubtitle,\n    prices[]->{\n      _id,\n      category,\n      services[]{\n        name,\n        price,\n      }\n    },\n    \n  buttons[]{\n    text,\n    variant,\n    _key,\n    _type,\n    \"openInNewTab\": url.openInNewTab,\n    \"anchor\": url.anchor->idItem,\n    \"href\": select(\n      url.type == \"internal\" => url.internal->slug.current,\n      url.type == \"external\" => url.external,\n      url.href\n    ),\n  }\n,\n    \n  image{\n    ...,\n    \"alt\": imageDescription,\n    \"blurData\": asset->metadata.lqip,\n    \"dominantColor\": asset->metadata.palette.dominant.background,\n  }\n,\n  }\n,\n      \n  _type == \"testimonials\" => {\n    _type,\n    _key,\n    title,\n    richSubtitle,\n    testimonials[]->{\n      username,\n      richText,\n    },\n    \n  buttons[]{\n    text,\n    variant,\n    _key,\n    _type,\n    \"openInNewTab\": url.openInNewTab,\n    \"anchor\": url.anchor->idItem,\n    \"href\": select(\n      url.type == \"internal\" => url.internal->slug.current,\n      url.type == \"external\" => url.external,\n      url.href\n    ),\n  }\n,\n  }\n,\n      \n  _type == \"interiorPageHero\" => {\n    _type,\n    _key,\n    title,\n    richSubtitle,\n    richText,\n    \n  image{\n    ...,\n    \"alt\": imageDescription,\n    \"blurData\": asset->metadata.lqip,\n    \"dominantColor\": asset->metadata.palette.dominant.background,\n  }\n,\n  }\n,\n      \n  _type == \"serviceInformation\" => {\n    _type,\n    _key,\n    title,\n    \"id\": idReference->idItem,\n    introduction,\n    service[]{\n      serviceName,\n      description,\n    },\n    treatmentProcess[]{\n      _key,\n      icon,\n      title,\n      description,\n    },\n    isHealingProcess,\n    renderImageFirstOnDesktop,\n    gallery[]{\n      \n  image{\n    ...,\n    \"alt\": imageDescription,\n    \"blurData\": asset->metadata.lqip,\n    \"dominantColor\": asset->metadata.palette.dominant.background,\n  }\n,\n      caption,\n    },\n    \n  buttons[]{\n    text,\n    variant,\n    _key,\n    _type,\n    \"openInNewTab\": url.openInNewTab,\n    \"anchor\": url.anchor->idItem,\n    \"href\": select(\n      url.type == \"internal\" => url.internal->slug.current,\n      url.type == \"external\" => url.external,\n      url.href\n    ),\n  }\n,\n    useLighterBg,\n  }\n,\n      \n  _type == \"priceCards\" => {\n    _type,\n    _key,\n    title,\n    prices[]->{\n      _id,\n      category,\n      services[]{\n        name,\n        price,\n        touchUps[]{\n          timeframe,\n          price\n        }\n      }\n    },\n    \n  buttons[]{\n    text,\n    variant,\n    _key,\n    _type,\n    \"openInNewTab\": url.openInNewTab,\n    \"anchor\": url.anchor->idItem,\n    \"href\": select(\n      url.type == \"internal\" => url.internal->slug.current,\n      url.type == \"external\" => url.external,\n      url.href\n    ),\n  }\n,\n  }\n,\n    },\n    meta_title,\n    meta_description,\n    noindex,\n    ogImage {\n      asset->{\n        _id,\n        url,\n        metadata {\n          dimensions {\n            width,\n            height\n          }\n        }\n      },\n    }\n  }\n": PAGE_QUERYResult;
     "*[_type == \"page\" && defined(slug) && language == $language]{slug}": PAGES_SLUGS_QUERYResult;
   }
 }
