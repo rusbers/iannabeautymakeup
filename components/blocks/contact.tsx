@@ -27,7 +27,7 @@ export const ContactBlock = ({
           <RichTitle className="text-center mb-8 lg:text-start" richText={richTitle} />
           <RichText className="space-y-4" richText={richText} />
           {socialMediaLinks && (
-            <ul className="flex flex-wrap gap-4 items-center">
+            <ul className="flex justify-center lg:justify-start flex-wrap gap-4 items-center">
               {socialMediaLinks.map(({ name, label, url, icon, _id }, index) => (
                 <li key={_id + " " + name + " " + index}>
                   <Link
@@ -62,7 +62,7 @@ export const ContactBlock = ({
         </div>
       </div>
       {image && (
-        <div className="relative mx-auto p-2 lg:p-0">
+        <div className="relative mx-auto p-2 lg:p-0 self-start">
           <div className="absolute inset-0 border-2 border-gold-800 lg:transform lg:-translate-x-2 lg:-translate-y-2  -z-10"></div>
           <SanityImage
             asset={image}

@@ -48,7 +48,11 @@ export function PriceListBlock({
           )}
 
           {buttons && (
-            <SanityButtons className="mt-12 mx-auto lg:mx-0" size="lg" buttons={buttons} />
+            <SanityButtons
+              className="mt-12 sm:justify-center lg:justify-start"
+              size="lg"
+              buttons={buttons}
+            />
           )}
         </div>
         {image && (
