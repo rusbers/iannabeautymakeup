@@ -1,7 +1,6 @@
 import { buttonsFragment, imageFragment } from "./fragments"
 
 // @sanity-typegen-ignore
-
 export const aboutMeBlockQuery = /* groq */ `
   _type == "aboutMe" => {
     _type,

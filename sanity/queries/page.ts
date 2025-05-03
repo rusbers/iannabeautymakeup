@@ -6,6 +6,7 @@ import { imageGridGalleryBlockQuery } from "./image-grid-gallery"
 import { priceListBlockQuery } from "./price-list"
 import { testimonialsBlockQuery } from "./testimonials"
 import { interiorPageHeroBlockQuery } from "./interior-page-hero"
+import { serviceInformationBlock } from "./service-information"
 
 export const PAGE_QUERY = groq`
   *[_type == "page" && slug.current == $slug && language == $language][0]{
@@ -17,6 +18,7 @@ export const PAGE_QUERY = groq`
       ${priceListBlockQuery},
       ${testimonialsBlockQuery},
       ${interiorPageHeroBlockQuery},
+      ${serviceInformationBlock},
     },
     meta_title,
     meta_description,

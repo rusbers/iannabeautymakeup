@@ -20,6 +20,7 @@ import { priceList } from "./schemas/blocks/price-list"
 import { testimonials } from "./schemas/blocks/testimonials"
 import { imageGridGallery } from "./schemas/blocks/image-grid-gallery"
 import { interiorPageHero } from "./schemas/blocks/interior-page-hero"
+import { serviceInformation } from "./schemas/blocks/service-information"
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -44,5 +45,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     testimonials,
     imageGridGallery,
     interiorPageHero,
+    serviceInformation,
   ],
 }

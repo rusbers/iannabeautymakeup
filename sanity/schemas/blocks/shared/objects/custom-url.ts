@@ -63,15 +63,15 @@ export const customUrl = defineType({
         }),
       ],
     }),
-    // defineField({
-    //   name: "anchor",
-    //   type: "reference",
-    //   description:
-    //     "Select the ID of the section on the selected page, which you want this button to link to (e.g. /services#the-eyebrows will lead to 'The Eyebrows' section of the /services page)",
-    //   options: { disableNew: true },
-    //   hidden: ({ parent }) => parent?.type !== "internal",
-    //   to: [{ type: "idEntry" }],
-    // }),
+    defineField({
+      name: "anchor",
+      type: "reference",
+      description:
+        "Select the ID of the section on the selected page, which you want this button to link to (e.g. /services#the-eyebrows will lead to 'The Eyebrows' section of the /services page)",
+      options: { disableNew: true },
+      hidden: ({ parent }) => parent?.type !== "internal",
+      to: [{ type: "idEntry" }],
+    }),
   ],
   preview: {
     select: {
@@ -79,19 +79,19 @@ export const customUrl = defineType({
       urlType: "type",
       internalUrl: "internal.slug.current",
       openInNewTab: "openInNewTab",
-      // anchor: "anchor",
+      anchor: "anchor",
     },
-    prepare({ externalUrl, urlType, internalUrl, openInNewTab }) {
+    prepare({ externalUrl, urlType, internalUrl, openInNewTab, anchor }) {
       const url = urlType === "external" ? externalUrl : `/${internalUrl}`
       const newTabIndicator = openInNewTab ? " ↗" : ""
       const truncatedUrl = url?.length > 30 ? `${url.substring(0, 30)}...` : url
-      // const subtitle = anchor
-      //   ? `${truncatedUrl}${newTabIndicator} (anchor link)`
-      //   : `${truncatedUrl}${newTabIndicator}`
+      const subtitle = anchor
+        ? `${truncatedUrl}${newTabIndicator} (anchor link)`
+        : `${truncatedUrl}${newTabIndicator}`
 
       return {
         title: `${urlType === "external" ? "External" : "Internal"} Link`,
-        subtitle: "subtitle",
+        subtitle: subtitle,
       }
     },
   },

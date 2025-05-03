@@ -63,6 +63,7 @@ export const page = defineType({
         { type: "priceList" },
         { type: "testimonials" },
         { type: "interiorPageHero" },
+        { type: "serviceInformation" },
       ],
     }),
     defineField({

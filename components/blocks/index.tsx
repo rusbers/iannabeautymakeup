@@ -7,6 +7,7 @@ import { AboutMeBlock } from "./about-me"
 import { GridGalleryBlock } from "./grid-gallery"
 import { PriceListBlock } from "./price-list"
 import { InteriorPageHeroBlock } from "./interior-page-hero"
+import { ServiceInfoBlock } from "./service-information"
 
 type Block = NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number]
 
@@ -20,6 +21,7 @@ const componentMap: {
   priceList: PriceListBlock,
   testimonials: TestimonialsBlock,
   interiorPageHero: InteriorPageHeroBlock,
+  serviceInformation: ServiceInfoBlock,
 }
 
 export default function Blocks({ blocks, lang }: { blocks?: Block[]; lang: Locale }) {
