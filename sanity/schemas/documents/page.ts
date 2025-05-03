@@ -65,6 +65,7 @@ export const page = defineType({
         { type: "interiorPageHero" },
         { type: "serviceInformation" },
         { type: "priceCards" },
+        { type: "contact" },
       ],
     }),
     defineField({

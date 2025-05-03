@@ -9,6 +9,7 @@ import { PriceListBlock } from "./price-list"
 import { InteriorPageHeroBlock } from "./interior-page-hero"
 import { ServiceInfoBlock } from "./service-information"
 import { PriceCardsBlock } from "./price-cards"
+import { ContactBlock } from "./contact"
 
 type Block = NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number]
 
@@ -24,6 +25,7 @@ const componentMap: {
   interiorPageHero: InteriorPageHeroBlock,
   serviceInformation: ServiceInfoBlock,
   priceCards: PriceCardsBlock,
+  contact: ContactBlock,
 }
 
 export default function Blocks({ blocks, lang }: { blocks?: Block[]; lang: Locale }) {

@@ -10,7 +10,12 @@ import { idEntry } from "./schemas/documents/id-entry"
 // Schema UI shared objects
 import { customUrl } from "./schemas/blocks/shared/objects/custom-url"
 import { button } from "./schemas/blocks/shared/objects/button"
-import { richHeroTitle, richSubtitle, richText } from "./schemas/blocks/shared/objects/rich-text"
+import {
+  richHeroTitle,
+  richSubtitle,
+  richText,
+  richTitle,
+} from "./schemas/blocks/shared/objects/rich-text"
 
 // Schema UI objects
 import { hero } from "./schemas/blocks/hero"
@@ -22,6 +27,7 @@ import { imageGridGallery } from "./schemas/blocks/image-grid-gallery"
 import { interiorPageHero } from "./schemas/blocks/interior-page-hero"
 import { serviceInformation } from "./schemas/blocks/service-information"
 import { priceCards } from "./schemas/blocks/price-cards"
+import { contact } from "./schemas/blocks/contact"
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -38,6 +44,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     richHeroTitle,
     richText,
     richSubtitle,
+    richTitle,
     // blocks
     hero,
     featuredServicesWithIcon,
@@ -48,5 +55,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     interiorPageHero,
     serviceInformation,
     priceCards,
+    contact,
   ],
 }
