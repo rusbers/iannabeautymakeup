@@ -63,7 +63,6 @@ export function HeroBlock({
         <>
           <SanityImage
             aria-hidden
-            loading="eager"
             priority
             asset={background}
             fill
