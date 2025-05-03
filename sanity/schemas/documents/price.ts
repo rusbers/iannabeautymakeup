@@ -1,4 +1,4 @@
-// ./schemas/price.ts
+import { orderRankField } from "@sanity/orderable-document-list"
 import { Euro } from "lucide-react"
 import { defineArrayMember, defineField, defineType } from "sanity"
 
@@ -8,6 +8,19 @@ export const price = defineType({
   icon: Euro,
   type: "document",
   fields: [
+    defineField({
+      name: "language",
+      type: "string",
+      readOnly: true,
+      hidden: false,
+      initialValue: "en",
+      options: {
+        list: [
+          { title: "English", value: "en" },
+          { title: "Romanian", value: "ro" },
+        ],
+      },
+    }),
     defineField({
       name: "category",
       title: "Category",
@@ -96,18 +109,18 @@ export const price = defineType({
         }),
       ],
     }),
+    orderRankField({ type: "price" }),
   ],
   preview: {
     select: {
       title: "category",
-      services: "services",
+      language: "language",
     },
     prepare(selection) {
-      const { title, services } = selection
-      const serviceCount = Array.isArray(services) ? services.length : 0
+      const { title, language } = selection
       return {
         title,
-        subtitle: `${serviceCount} service${serviceCount !== 1 ? "s" : ""}`,
+        subtitle: `${language}`,
       }
     },
   },

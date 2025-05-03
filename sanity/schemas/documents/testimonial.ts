@@ -37,14 +37,11 @@ export const testimonial = defineType({
     select: {
       title: "username",
       language: "language",
-      content: "richText",
     },
-    prepare({ title, language, content }) {
-      // @ts-ignore
-      const plainText = content?.[0]?.children?.map((child) => child.text).join("") || ""
+    prepare({ title, language }) {
       return {
         title,
-        subtitle: `${language}: "${plainText}"`,
+        subtitle: language,
       }
     },
   },
