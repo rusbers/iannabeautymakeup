@@ -62,6 +62,7 @@ export const page = defineType({
         { type: "imageGridGallery" },
         { type: "priceList" },
         { type: "testimonials" },
+        { type: "interiorPageHero" },
       ],
     }),
     defineField({

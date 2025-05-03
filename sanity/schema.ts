@@ -19,6 +19,7 @@ import { aboutMe } from "./schemas/blocks/about-me"
 import { priceList } from "./schemas/blocks/price-list"
 import { testimonials } from "./schemas/blocks/testimonials"
 import { imageGridGallery } from "./schemas/blocks/image-grid-gallery"
+import { interiorPageHero } from "./schemas/blocks/interior-page-hero"
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -42,5 +43,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     priceList,
     testimonials,
     imageGridGallery,
+    interiorPageHero,
   ],
 }

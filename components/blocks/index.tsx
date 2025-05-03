@@ -6,6 +6,7 @@ import { FeaturedServicesWithIconBlock } from "./featured-services-with-icon"
 import { AboutMeBlock } from "./about-me"
 import { GridGalleryBlock } from "./grid-gallery"
 import { PriceListBlock } from "./price-list"
+import { InteriorPageHeroBlock } from "./interior-page-hero"
 
 type Block = NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number]
 
@@ -18,6 +19,7 @@ const componentMap: {
   imageGridGallery: GridGalleryBlock,
   priceList: PriceListBlock,
   testimonials: TestimonialsBlock,
+  interiorPageHero: InteriorPageHeroBlock,
 }
 
 export default function Blocks({ blocks, lang }: { blocks?: Block[]; lang: Locale }) {
