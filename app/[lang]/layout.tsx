@@ -48,7 +48,6 @@ export const metadata: Metadata = {
       },
     ],
     locale: "en_US",
-    countryName: "Ireland",
     type: "website",
   },
   robots: !isProduction ? "noindex, nofollow" : "index, follow",
