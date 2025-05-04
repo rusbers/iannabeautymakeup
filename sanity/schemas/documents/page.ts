@@ -53,6 +53,7 @@ export const page = defineType({
     }),
     defineField({
       name: "blocks",
+      description: "The sections used in this web page.",
       type: "array",
       group: "content",
       of: [
@@ -86,18 +87,23 @@ export const page = defineType({
     defineField({
       name: "meta_title",
       title: "Meta Title",
+      description:
+        "This is the title that shows up in Google search results. Try to keep it short, clear, and helpful — like a book title that tells people what the page is about.",
       type: "string",
       group: "seo",
     }),
     defineField({
       name: "meta_description",
       title: "Meta Description",
+      description:
+        "This is the little description that shows up under your page title in Google. Use it to explain what the page is about and why someone should click.",
       type: "text",
       group: "seo",
     }),
     defineField({
       name: "noindex",
       title: "No Index",
+      description: "Turn this ON if you don’t want this page to show up on Google",
       type: "boolean",
       initialValue: false,
       group: "seo",
@@ -105,6 +111,8 @@ export const page = defineType({
     defineField({
       name: "ogImage",
       title: "Open Graph Image - [1200x630]",
+      description:
+        "This is the image that shows when you share the page on social media. It should be nice, relevant, and ideally 1200x630 pixels.",
       type: "image",
       group: "seo",
     }),
