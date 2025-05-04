@@ -19,7 +19,7 @@ export const imagesFragment = /* groq */ `
 `
 
 export const buttonsFragment = /* groq */ `
-  buttons[]{
+  buttons[] {
     text,
     variant,
     _key,
@@ -27,9 +27,16 @@ export const buttonsFragment = /* groq */ `
     "openInNewTab": url.openInNewTab,
     "anchor": url.anchor->idItem,
     "href": select(
-      url.type == "internal" => url.internal->slug.current,
-      url.type == "external" => url.external,
-      url.href
-    ),
+      url.type == "internal" && defined(url.anchor->idItem) && url.internal->slug.current != "index" =>
+        "/" + $language + "/" + url.internal->slug.current + "#" + url.anchor->idItem,
+      url.type == "internal" && defined(url.anchor->idItem) && url.internal->slug.current == "index" =>
+        "/" + $language + "#" + url.anchor->idItem,
+      url.type == "internal" && url.internal->slug.current == "index" =>
+        "/" + $language,
+      url.type == "internal" =>
+        "/" + $language + "/" + url.internal->slug.current,
+      url.type == "external" =>
+        url.external
+    )
   }
 `
