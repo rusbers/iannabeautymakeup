@@ -11,7 +11,7 @@ const isProduction = process.env.NEXT_PUBLIC_SITE_ENV === "production"
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL!),
   title: {
-    template: "Permanent Makeup Services in Dublin and Edenderry",
+    template: "%s",
     default: "Permanent Makeup Services in Dublin and Edenderry",
   },
   openGraph: {
