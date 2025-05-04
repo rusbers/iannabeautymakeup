@@ -18,7 +18,7 @@ export const AboutMeBlock = ({
   image,
 }: AboutMeBlockProps) => {
   return (
-    <section id="about" className="py-20 container">
+    <section className="py-20 container">
       <div className="grid lg:grid-cols-[400px_auto] gap-12 items-center">
         {/* H2 */}
         {title && (
@@ -30,7 +30,7 @@ export const AboutMeBlock = ({
         {/* Left Column - Image */}
         {image && (
           <div className="relative mx-auto p-2 lg:p-0">
-            <div className="absolute inset-0 border-2 border-gold-800 lg:transform lg:-translate-x-2 lg:-translate-y-2  -z-10"></div>
+            <div className="absolute inset-0 border-2 border-gold-800 lg:transform lg:-translate-x-2 lg:-translate-y-2 -z-10"></div>
             {/* TODO add sizes */}
             <SanityImage
               asset={image}

@@ -18,10 +18,7 @@ export const ContactBlock = ({
   socialMediaLinks,
 }: ContactBlockProps) => {
   return (
-    <div
-      id="contact"
-      className="container max-w-screen-xl py-10 lg:py-20 grid lg:grid-cols-[auto_1fr] gap-8"
-    >
+    <section className="container max-w-screen-xl py-10 lg:py-20 grid lg:grid-cols-[auto_1fr] gap-8">
       <div className="lg:order-last">
         <div className="space-y-4 text-center lg:text-left max-w-prose mx-auto">
           <RichTitle className="text-center mb-8 lg:text-start" richText={richTitle} />
@@ -72,6 +69,6 @@ export const ContactBlock = ({
           />
         </div>
       )}
-    </div>
+    </section>
   )
 }

@@ -17,7 +17,7 @@ export function PriceListBlock({
   image,
 }: PriceListBlockProps) {
   return (
-    <section id="pricing-list-block" className="py-20 bg-white/5">
+    <section className="py-20 bg-white/5">
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_350px] gap-14 items-center lg:container">
         <div className="max-lg:container lg:pr-0">
           <Title variant="responsive" className="mb-4">

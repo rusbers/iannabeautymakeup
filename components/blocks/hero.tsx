@@ -22,7 +22,6 @@ export function HeroBlock({
 }: HeroBlockProps) {
   return (
     <section
-      id={_type || "hero"}
       className="relative min-h-[calc(100vh-115px)] lg:min-h-[calc(100dvh-115px)] flex items-center py-10"
     >
       {/* Content Container */}
