@@ -21,9 +21,7 @@ export function HeroBlock({
   image: background,
 }: HeroBlockProps) {
   return (
-    <section
-      className="relative min-h-[calc(100vh-115px)] lg:min-h-[calc(100dvh-115px)] flex items-center py-10"
-    >
+    <section className="relative min-h-[calc(100vh-115px)] lg:min-h-[calc(100dvh-115px)] flex items-center py-10">
       {/* Content Container */}
       <div className="container relative z-10">
         {/* Main Heading */}
@@ -68,7 +66,17 @@ export function HeroBlock({
             className="z-0 object-cover select-none absolute inset-0 object-right"
             sizes="(min-width: 640px) 99.24vw, (min-width: 520px) calc(-37vw + 1079px), (min-width: 360px) calc(-67.86vw + 1225px), calc(-82.5vw + 1361px)"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/80 to-black/90"></div>
+          <div
+            style={{
+              position: "absolute",
+              top: 0,
+              right: 0,
+              bottom: 0,
+              left: 0,
+              backgroundImage:
+                "linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0.8), rgba(0,0,0,0.9))",
+            }}
+          />
         </>
       )}
     </section>
