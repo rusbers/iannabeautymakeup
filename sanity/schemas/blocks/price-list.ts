@@ -8,8 +8,8 @@ export const priceList = defineType({
   icon: List,
   type: "object",
   fields: [
-    titleField,
-    richSubtitleField,
+    { ...titleField, validation: (Rule) => Rule.required() },
+    { ...richSubtitleField, validation: (Rule) => Rule.required() },
     defineField({
       name: "prices",
       title: "Prices",
@@ -26,8 +26,12 @@ export const priceList = defineType({
       ],
       validation: (Rule) => Rule.required().min(1).unique(),
     }),
-    buttonsField,
-    imageField,
+    {
+      ...buttonsField,
+      description: "Add only one button",
+      validation: (Rule) => Rule.required().max(1),
+    },
+    { ...imageField, validation: (Rule) => Rule.required() },
   ],
   preview: {
     select: {

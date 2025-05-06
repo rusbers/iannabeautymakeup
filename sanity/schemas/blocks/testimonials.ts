@@ -8,8 +8,8 @@ export const testimonials = defineType({
   title: "Testimonials",
   icon: Quote,
   fields: [
-    titleField,
-    richSubtitleField,
+    { ...titleField, validation: (Rule) => Rule.required() },
+    { ...richSubtitleField, validation: (Rule) => Rule.required() },
     defineField({
       name: "testimonials",
       type: "array",
@@ -26,8 +26,13 @@ export const testimonials = defineType({
           },
         },
       ],
+      validation: (Rule) => Rule.required(),
     }),
-    buttonsField,
+    {
+      ...buttonsField,
+      description: "Add only one button",
+      validation: (Rule) => Rule.required().max(1),
+    },
   ],
   preview: {
     select: {

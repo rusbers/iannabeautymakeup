@@ -30,9 +30,6 @@ export const serviceInformation = defineType({
       type: "reference",
       to: [{ type: "idEntry" }],
       group: "main",
-      // options: {
-      //   filter: '_id == ""', // Hide all existing IDs — force create
-      // },
       validation: (Rule) => Rule.warning("It's highly recommended to create an ID for linking."),
     }),
     {

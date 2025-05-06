@@ -36,8 +36,8 @@ export const imageGridGallery = defineType({
     },
     prepare({ media }) {
       return {
-        title: "Images Grid",
-        subtitle: "Grid of 7 images",
+        title: "Image Gallery",
+        subtitle: "A gallery of 7 clickable images, which link to your instagram",
         media,
       }
     },

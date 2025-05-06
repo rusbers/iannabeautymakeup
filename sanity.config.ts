@@ -5,7 +5,7 @@
  */
 
 import { visionTool } from "@sanity/vision"
-import { defineConfig } from "sanity"
+import { defineConfig, isDev, PluginOptions } from "sanity"
 import { structureTool } from "sanity/structure"
 import { presentationTool } from "sanity/presentation"
 
@@ -20,70 +20,67 @@ import { assist } from "@sanity/assist"
 import { codeInput } from "@sanity/code-input"
 import { iconPicker } from "sanity-plugin-icon-picker"
 import { inlineSvgInput } from "@focus-reactive/sanity-plugin-inline-svg-input"
+import { SquareLogo } from "./components/square-logo"
+
+const editorTools: PluginOptions[] = [
+  structureTool({ structure, title: "Content" }),
+  presentationTool({
+    title: "Visual Editor",
+    previewUrl: {
+      draftMode: {
+        enable: "/api/draft-mode/enable",
+      },
+    },
+    resolve,
+  }),
+]
+const devTools: PluginOptions[] = [visionTool({ defaultApiVersion: apiVersion })]
+
+const documentTools: PluginOptions[] = [
+  documentInternationalization({
+    supportedLanguages: [
+      { id: "en", title: "English" },
+      { id: "ro", title: "Romanian" },
+    ],
+    schemaTypes: ["page", "testimonial", "price"],
+  }),
+  internationalizedArray({
+    languages: [
+      { id: "en", title: "English" },
+      { id: "ro", title: "Romanian" },
+    ],
+    defaultLanguages: ["en"],
+    fieldTypes: ["string"],
+    buttonLocations: ["field"],
+  }),
+  assist({
+    translate: {
+      document: {
+        languageField: "language",
+        documentTypes: ["page", "testimonial", "price"],
+      },
+      field: {
+        documentTypes: ["settings", "socialMedia"],
+        languages: [
+          { id: "en", title: "English" },
+          { id: "ro", title: "Romanian" },
+        ],
+      },
+    },
+  }),
+  codeInput(),
+  iconPicker(),
+  inlineSvgInput(),
+]
 
 export default defineConfig({
   basePath: "/studio",
-  title: "Ianna Beauty",
+  title: "Studio | Ianna Beauty",
   projectId,
   dataset,
-  // Add and edit the content schema in the './sanity/schema' folder
+  icon: SquareLogo,
   schema,
-  plugins: [
-    structureTool({ structure }),
-    presentationTool({
-      previewUrl: {
-        draftMode: {
-          enable: "/api/draft-mode/enable",
-        },
-      },
-      resolve,
-    }),
-    // Vision is a tool that lets you query your content with GROQ in the studio
-    // https://www.sanity.io/docs/the-vision-plugin
-    visionTool({ defaultApiVersion: apiVersion }),
-    documentInternationalization({
-      // Required configuration
-      supportedLanguages: [
-        { id: "en", title: "English" },
-        { id: "ro", title: "Romanian" },
-      ],
-      schemaTypes: ["page", "testimonial", "price"],
-    }),
-    // only if you want to translate fields, for example:
-    // category names for filters
-    internationalizedArray({
-      languages: [
-        { id: "en", title: "English" },
-        { id: "ro", title: "Romanian" },
-      ],
-      defaultLanguages: ["en"],
-      fieldTypes: ["string"],
-      buttonLocations: ["field"],
-    }),
-    assist({
-      translate: {
-        document: {
-          // The name of the field that holds the current language
-          // in the form of a language code e.g. 'en', 'fr', 'nb_NO'.
-          // Required
-          languageField: "language",
-          // Optional extra filter for document types.
-          // If not set, translation is enabled for all documents
-          // that has a field with the name defined above.
-          documentTypes: ["page", "testimonial", "price"],
-        },
-        field: {
-          // Translate fields for the following document types
-          documentTypes: ["settings", "socialMedia"],
-          languages: [
-            { id: "en", title: "English" },
-            { id: "ro", title: "Romanian" },
-          ],
-        },
-      },
-    }),
-    codeInput(),
-    iconPicker(),
-    inlineSvgInput(),
-  ],
+  plugins: isDev
+    ? [...editorTools, ...devTools, ...documentTools]
+    : [...editorTools, ...documentTools],
 })

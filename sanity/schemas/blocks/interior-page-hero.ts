@@ -7,7 +7,12 @@ export const interiorPageHero = defineType({
   title: "Interior Page Intro",
   icon: Star,
   type: "object",
-  fields: [titleField, richSubtitleField, richTextField, { ...imageField, title: "Background" }],
+  fields: [
+    { ...titleField, validation: (Rule) => Rule.required() },
+    { ...richSubtitleField, validation: (Rule) => Rule.required() },
+    { ...richTextField, validation: (Rule) => Rule.required() },
+    { ...imageField, title: "Background" },
+  ],
   preview: {
     select: {
       image: "image",

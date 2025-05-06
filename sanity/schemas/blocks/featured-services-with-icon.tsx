@@ -14,6 +14,7 @@ export const featuredServicesWithIcon = defineType({
       title: "Section Title",
       description: "This title will not be visible on the website, but it is important for the SEO",
       type: "string",
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "items",
@@ -47,7 +48,7 @@ export const featuredServicesWithIcon = defineType({
             {
               ...buttonsField,
               title: "Link",
-              validation: (Rule) => Rule.required(),
+              validation: (Rule) => Rule.required().max(1),
             },
           ],
           preview: {

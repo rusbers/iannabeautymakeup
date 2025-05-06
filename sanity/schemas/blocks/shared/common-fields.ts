@@ -32,7 +32,6 @@ export const buttonsField = defineField({
   name: "buttons",
   type: "array",
   of: [{ type: "button" }],
-  description: "Add one or more clickable buttons that visitors can use to navigate your website",
 })
 
 export const iconPickerField = defineField({
@@ -40,7 +39,7 @@ export const iconPickerField = defineField({
   title: "Icon",
   options: {
     storeSvg: true,
-    providers: ["fi"],
+    providers: ["fi", "si"],
   },
   type: "iconPicker",
   validation: (Rule) => Rule.required(),

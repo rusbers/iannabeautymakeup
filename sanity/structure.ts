@@ -13,7 +13,6 @@ export const structure = (S: any, context: any) =>
         context,
       }),
       S.divider(),
-      // S.documentTypeListItem("price").id("price").title("Prices").icon(Euro),
       orderableDocumentListDeskItem({
         type: "price",
         title: "Prices",
