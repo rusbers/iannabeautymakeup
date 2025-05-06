@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils"
 import type { getDictionary } from "@/get-dictionary"
+import Link from "next/link"
 
 type CopyProps = {
   as?: "footer" | "div"
@@ -17,7 +18,17 @@ export function Copy({ as: Tag = "footer", dictionary, className }: CopyProps) {
     >
       <small>{`© ${new Date().getFullYear()} ${dictionary.global["copy"]}`}</small>
       <small>
-        {dictionary.global["built-by"]} <span className="text-gold-600">@web01studio</span>
+        {dictionary.global["built-by"]}{" "}
+        <Link
+          className="text-gold-600"
+          href="https://www.linkedin.com/in/ruslan-berendeev/"
+          target="_blank"
+          aria-label={`Navigate to the developer's linkedin`}
+          title={`Click to visit the developer's linkedin`}
+          rel="noopener noreferrer"
+        >
+          @web01studio
+        </Link>
       </small>
     </Tag>
   )
